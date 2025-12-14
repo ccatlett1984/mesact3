@@ -460,7 +460,7 @@
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
               <item row="1" column="0">
-               <widget class="QComboBox" name="daughterCB_0"/>
+               <widget class="QComboBox" name="daughterCB_1"/>
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="label_6">
@@ -473,10 +473,10 @@
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QComboBox" name="daughterCB_1"/>
+               <widget class="QComboBox" name="daughterCB_2"/>
               </item>
               <item row="1" column="1">
-               <widget class="QLabel" name="daughterLB_0">
+               <widget class="QLabel" name="daughterLB_1">
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
@@ -495,7 +495,7 @@
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLabel" name="daughterLB_1">
+               <widget class="QLabel" name="daughterLB_2">
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
@@ -1698,7 +1698,7 @@ to the clipboard</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QTabWidget" name="c0_JointTW">
+         <widget class="QTabWidget" name="joint_tw_3">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -12394,7 +12394,7 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QTabWidget" name="c1_JointTW">
+         <widget class="QTabWidget" name="joint_tw_4">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -22787,7 +22787,7 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_26">
         <item>
-         <widget class="QTabWidget" name="c2_JointTW">
+         <widget class="QTabWidget" name="joint_tw_5">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -45169,8 +45169,8 @@ auto enp2s0
   <tabstop>backupCB</tabstop>
   <tabstop>boardCB</tabstop>
   <tabstop>address_cb</tabstop>
-  <tabstop>daughterCB_0</tabstop>
   <tabstop>daughterCB_1</tabstop>
+  <tabstop>daughterCB_2</tabstop>
   <tabstop>default_imperial_pb</tabstop>
   <tabstop>default_metric_pb</tabstop>
   <tabstop>set_7i96s_x_pb</tabstop>
@@ -46809,7 +46809,7 @@ auto enp2s0
   <tabstop>ethernetPTE</tabstop>
   <tabstop>c1_settings_2</tabstop>
   <tabstop>c1_min_ferror_2</tabstop>
-  <tabstop>c0_JointTW</tabstop>
+  <tabstop>joint_tw_3</tabstop>
   <tabstop>c1_bias_0</tabstop>
   <tabstop>c1_i_0</tabstop>
   <tabstop>c1_max_vel_0</tabstop>
@@ -46819,7 +46819,7 @@ auto enp2s0
   <tabstop>c1_maxError_0</tabstop>
   <tabstop>c1_d_0</tabstop>
   <tabstop>c1_maxOutput_0</tabstop>
-  <tabstop>c2_JointTW</tabstop>
+  <tabstop>joint_tw_5</tabstop>
   <tabstop>daughter_info_pte_0</tabstop>
   <tabstop>c1_ff1_0</tabstop>
   <tabstop>c1_max_accel_0</tabstop>
@@ -46829,7 +46829,7 @@ auto enp2s0
   <tabstop>c1_deadband_0</tabstop>
   <tabstop>c1_axis_0</tabstop>
   <tabstop>plainTextEdit_3</tabstop>
-  <tabstop>c1_JointTW</tabstop>
+  <tabstop>joint_tw_4</tabstop>
   <tabstop>c1_ff0_0</tabstop>
   <tabstop>angular_steps_rev_le</tabstop>
   <tabstop>angular_microsteps_le</tabstop>

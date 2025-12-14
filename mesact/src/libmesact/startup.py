@@ -2,6 +2,7 @@ import shutil
 from functools import partial
 
 from libmesact import boards
+from libmesact import daughters
 
 def hide(parent):
 	# set main tab visibility
@@ -226,7 +227,9 @@ def connections(parent):
 	# Menu Items
 
 	# Machine Tab
-	parent.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, parent))
+	parent.boardCB.currentIndexChanged.connect(partial(boards.changed, parent))
+	parent.daughterCB_1.currentIndexChanged.connect(partial(daughters.changed, parent, 4))
+	parent.daughterCB_2.currentIndexChanged.connect(partial(daughters.changed, parent, 5))
 
 
 
