@@ -31,7 +31,7 @@ class mesact(QMainWindow):
 			self.installed = False
 			loadUi(os.path.join(srcPath, 'mesact.ui'), self)
 		stylesheet = os.path.join(self.lib_path, 'mesact.qss')
-		print(f'self.docs_path {self.docs_path}')
+
 		with open(stylesheet,'r') as fh:
 			self.setStyleSheet(fh.read())
 

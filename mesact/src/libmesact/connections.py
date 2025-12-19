@@ -2,6 +2,7 @@ from functools import partial
 
 from PyQt6.QtGui import QAction, QIcon
 
+from libmesact import openini
 from libmesact import download
 from libmesact import utilities
 from libmesact import boards
@@ -11,11 +12,7 @@ def connect(parent):
 	# Menu Items
 	# File Menu
 	parent.actionNew.triggered.connect(partial(utilities.new_config, parent))
-	parent.actionMesaCT_PC_64_bit.triggered.connect(partial(download.download_deb, 'amd64', parent))
-	parent.actionMesaCT_Rpi_32_bit.triggered.connect(partial(download.download_deb, 'armhf', parent))
-	parent.actionMesaCT_Rpi_64_bit.triggered.connect(partial(download.download_deb, 'arm64', parent))
-
-	parent.actionFirmware.triggered.connect(partial(download.download_firmware, parent))
+	parent.actionOpen.triggered.connect(partial(openini.open_ini, parent))
 
 	exitAction = QAction(QIcon.fromTheme("application-exit"), 'Exit', parent)
 	exitAction.setStatusTip('Exit application')
@@ -23,6 +20,12 @@ def connect(parent):
 	parent.menuFile.addAction(exitAction)
 
 	# Downloads Menu
+	parent.actionMesaCT_PC_64_bit.triggered.connect(partial(download.download_deb, 'amd64', parent))
+	parent.actionMesaCT_Rpi_32_bit.triggered.connect(partial(download.download_deb, 'armhf', parent))
+	parent.actionMesaCT_Rpi_64_bit.triggered.connect(partial(download.download_deb, 'arm64', parent))
+
+	parent.actionFirmware.triggered.connect(partial(download.download_firmware, parent))
+
 	parent.action5i25.triggered.connect(partial(download.download_manual, '5i25man.pdf', parent))
 	parent.action5i25T.triggered.connect(partial(download.download_manual, '5i25tman.pdf', parent))
 	parent.action6i25.triggered.connect(partial(download.download_manual, '6i25man.pdf', parent))
