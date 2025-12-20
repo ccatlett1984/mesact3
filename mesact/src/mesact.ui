@@ -12396,7 +12396,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_4">
           <property name="currentIndex">
-           <number>8</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
@@ -22375,20 +22375,10 @@ Leave blank to home the joint manually.</string>
                    <string>Outputs 0 - 7</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_341">
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1142">
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1147">
                      <property name="text">
-                      <string>7</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1143">
-                     <property name="text">
-                      <string>2</string>
+                      <string>4</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -22405,13 +22395,68 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1145">
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_7">
                      <property name="text">
-                      <string>0</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="c1_output_3">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1142">
+                     <property name="text">
+                      <string>7</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_0">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="c1_output_2">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_1149">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1143">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="c1_output_6">
+                     <property name="text">
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
@@ -22425,25 +22470,36 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1147">
+                   <item row="4" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_4">
                      <property name="text">
-                      <string>4</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c1_output_0">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_3">
                      <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_0">
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_6">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_2">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_5">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -22459,10 +22515,17 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_1149">
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_1">
                      <property name="text">
-                      <string>6</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1145">
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -22476,15 +22539,8 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QPushButton" name="c1_output_2">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="c1_output_3">
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c1_output_0">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -22497,20 +22553,6 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="c1_output_5">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="1">
-                    <widget class="QPushButton" name="c1_output_6">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="7" column="1">
                     <widget class="QPushButton" name="c1_output_7">
                      <property name="text">
@@ -22518,54 +22560,36 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_1">
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="c1_output_5">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_2">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c1_output_type_0"/>
                    </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_3">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c1_output_type_1"/>
                    </item>
-                   <item row="4" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_4">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c1_output_type_2"/>
                    </item>
-                   <item row="5" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_5">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c1_output_type_3"/>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_6">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c1_output_type_4"/>
                    </item>
-                   <item row="7" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_7">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c1_output_type_5"/>
+                   </item>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c1_output_type_6"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c1_output_type_7"/>
                    </item>
                   </layout>
                  </widget>
@@ -22580,16 +22604,6 @@ Leave blank to home the joint manually.</string>
                     <widget class="QLabel" name="label_1140">
                      <property name="text">
                       <string>14</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1141">
-                     <property name="text">
-                      <string>15</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -22616,13 +22630,17 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_1135">
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="c1_output_12">
                      <property name="text">
-                      <string>9</string>
+                      <string>Select</string>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="c1_output_11">
+                     <property name="text">
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
@@ -22636,35 +22654,15 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1138">
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_10">
                      <property name="text">
-                      <string>12</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1136">
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c1_output_8">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_8">
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_14">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -22684,15 +22682,25 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="c1_output_11">
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1138">
                      <property name="text">
-                      <string>Select</string>
+                      <string>12</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="c1_output_12">
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_9">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="c1_output_15">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -22712,29 +22720,45 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="1">
-                    <widget class="QPushButton" name="c1_output_15">
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c1_output_8">
                      <property name="text">
                       <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_9">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1136">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>10</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_10">
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1141">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>15</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_11">
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1135">
+                     <property name="text">
+                      <string>9</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_13">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -22747,15 +22771,8 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_13">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c1_output_invert_14">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_11">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -22767,6 +22784,37 @@ Leave blank to home the joint manually.</string>
                       <string>Invert</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c1_output_invert_8">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c1_output_type_8"/>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c1_output_type_9"/>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c1_output_type_10"/>
+                   </item>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c1_output_type_11"/>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c1_output_type_12"/>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c1_output_type_13"/>
+                   </item>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c1_output_type_14"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c1_output_type_15"/>
                    </item>
                   </layout>
                  </widget>
@@ -22789,7 +22837,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_5">
           <property name="currentIndex">
-           <number>7</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -32790,20 +32838,41 @@ Analog Scale Max is Maximun RPM</string>
                    <string>Outputs 0 - 7</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_343">
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1150">
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_6">
                      <property name="text">
-                      <string>7</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_2">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1153">
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1151">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_3">
                      <property name="text">
-                      <string>2</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1156">
+                     <property name="text">
+                      <string>3</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -32820,10 +32889,48 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1153">
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_7">
                      <property name="text">
-                      <string>0</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="c2_output_6">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_0">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1150">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="c2_output_5">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1155">
+                     <property name="text">
+                      <string>4</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -32840,37 +32947,20 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1155">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1151">
                      <property name="text">
-                      <string>4</string>
+                      <string>2</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c2_output_0">
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="c2_output_2">
                      <property name="text">
                       <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_0">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_1156">
-                     <property name="text">
-                      <string>3</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -32884,15 +32974,29 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="c2_output_1">
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="c2_output_4">
                      <property name="text">
                       <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QPushButton" name="c2_output_2">
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_5">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_1">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="c2_output_1">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -32905,22 +33009,15 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="c2_output_4">
+                   <item row="4" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_4">
                      <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="c2_output_5">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="1">
-                    <widget class="QPushButton" name="c2_output_6">
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c2_output_0">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -32933,54 +33030,29 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_1">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c2_output_type_0"/>
                    </item>
-                   <item row="2" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_2">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c2_output_type_1"/>
                    </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_3">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c2_output_type_2"/>
                    </item>
-                   <item row="4" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_4">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c2_output_type_3"/>
                    </item>
-                   <item row="5" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_5">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c2_output_type_4"/>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_6">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c2_output_type_5"/>
                    </item>
-                   <item row="7" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_7">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c2_output_type_6"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c2_output_type_7"/>
                    </item>
                   </layout>
                  </widget>
@@ -32991,66 +33063,57 @@ Analog Scale Max is Maximun RPM</string>
                    <string>Outputs 8 - 15</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_344">
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_1162">
-                     <property name="text">
-                      <string>9</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="c2_output_11">
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="c2_output_12">
                      <property name="text">
                       <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="1">
-                    <widget class="QPushButton" name="c2_output_14">
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_13">
                      <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1159">
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_9">
                      <property name="text">
-                      <string>15</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1164">
+                   <item row="4" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_12">
                      <property name="text">
-                      <string>12</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="1">
-                    <widget class="QPushButton" name="c2_output_15">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_11">
                      <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="c2_output_9">
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_15">
                      <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
                    <item row="5" column="1">
                     <widget class="QPushButton" name="c2_output_13">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="c2_output_11">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -33066,34 +33129,27 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c2_output_8">
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="c2_output_14">
                      <property name="text">
                       <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_1158">
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1164">
                      <property name="text">
-                      <string>14</string>
+                      <string>12</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QPushButton" name="c2_output_10">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1165">
                      <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_1163">
-                     <property name="text">
-                      <string>13</string>
+                      <string>10</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -33110,32 +33166,52 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="c2_output_12">
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1163">
                      <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1165">
-                     <property name="text">
-                      <string>10</string>
+                      <string>13</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_8">
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="c2_output_9">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_9">
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="c2_output_15">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1162">
+                     <property name="text">
+                      <string>9</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1159">
+                     <property name="text">
+                      <string>15</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_14">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -33148,40 +33224,60 @@ Analog Scale Max is Maximun RPM</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_11">
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_1158">
+                     <property name="text">
+                      <string>14</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c2_output_8">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="c2_output_10">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c2_output_invert_8">
                      <property name="text">
                       <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_12">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c2_output_type_8"/>
                    </item>
-                   <item row="5" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_13">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c2_output_type_9"/>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_14">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c2_output_type_10"/>
                    </item>
-                   <item row="7" column="2">
-                    <widget class="QCheckBox" name="c2_output_invert_15">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c2_output_type_11"/>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c2_output_type_12"/>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c2_output_type_13"/>
+                   </item>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c2_output_type_14"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c2_output_type_15"/>
                    </item>
                   </layout>
                  </widget>
@@ -43842,8 +43938,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>36</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
