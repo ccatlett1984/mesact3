@@ -1,7 +1,7 @@
 import os
 
 from PyQt6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QCheckBox
-from PyQt6.QtWidgets import QApplication, QFileDialog
+from PyQt6.QtWidgets import QFileDialog, QLabel
 
 def new_config(parent):
 	# set main tab visibility
@@ -54,5 +54,17 @@ def machine_name_changed(parent, text):
 		parent.config_path_lb.setText(parent.configPath)
 	else:
 		parent.pathLabel.setText('')
+
+def add_mdi_row(parent):
+	rows = parent.mdi_grid_layout.rowCount()
+	# layout.addWidget(widget, row, column)
+	parent.mdi_grid_layout.addWidget(QLabel('MDI Command'), rows, 0)
+	le = QLineEdit(parent)
+	le.setObjectName(f'mdi_le_{rows}')
+	setattr(parent, f'mdi_le_{rows}', le) # add name to parent
+	parent.mdi_grid_layout.addWidget(le, rows, 1)
+
+
+
 
 

@@ -81,7 +81,7 @@ def connect(parent):
 
 
 
-
-
+	# Options Tab
+	parent.add_mdi_command_pb.clicked.connect(partial(utilities.add_mdi_row, parent))
 
 
