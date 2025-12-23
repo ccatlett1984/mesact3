@@ -2,9 +2,12 @@
 from functools import partial
 
 from PyQt6.QtCore import QObject
+from PyQt6.QtWidgets import QComboBox, QWidget
 
 from libmesact import dialogs
 from libmesact import download
+
+
 
 def connect(parent):
 	parent.msg_open_abort_cancel_pb.clicked.connect(partial(test_dialogs, parent))
@@ -25,9 +28,12 @@ def connect(parent):
 	parent.test_axis_names_pb.clicked.connect(partial(test_axis_names, parent))
 	parent.test_pid_names_pb.clicked.connect(partial(test_pid_names, parent))
 	parent.test_homing_names_pb.clicked.connect(partial(test_homing_names, parent))
+	parent.test_stepgen_names_pb.clicked.connect(partial(test_stepgen_names, parent))
 	parent.test_analog_names_pb.clicked.connect(partial(test_analog_names, parent))
 	parent.test_input_names_pb.clicked.connect(partial(test_input_names, parent))
 	parent.test_output_names_pb.clicked.connect(partial(test_output_names, parent))
+
+
 
 def test_dialogs(parent):
 	name = parent.sender().objectName()
@@ -58,6 +64,7 @@ def test_dialogs(parent):
 			print(result)
 
 def test_axis_names(parent):
+	print('test_axis_names')
 	'''
 	c0_axis_0 c0_axis_type_0 c0_scale_0 c0_min_limit_0 c0_max_limit_0 c0_max_vel_0
 	c0_max_vel_suffix_0 c0_max_accel_0 c0_max_vel_min_0 c0_max_vel_min_suffix_0
@@ -67,11 +74,12 @@ def test_axis_names(parent):
 	for item in axis_list:
 		for i in range(3):
 			for j in range (6):
-				if not parent.findChild(QObject, f'c{i}_{item}_{j}'):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
 					print(f'******* c{i}_{item}_{j} Not Found *******')
 		print(f'All of the {item} names were tested')
 
 def test_pid_names(parent):
+	print('test_axis_names')
 	'''
 	c0_p_0 c0_i_0 c0_d_0 c0_ff0_0 c0_ff1_0 c0_ff2_0
 	c0_deadband_0 c0_bias_0 c0_max_output_0 c0_max_error_0 c0_pid_default_0
@@ -83,7 +91,7 @@ def test_pid_names(parent):
 	for item in pid_list:
 		for i in range(3):
 			for j in range (6):
-				if not parent.findChild(QObject, f'c{i}_{item}_{j}'):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
 					print(f'******* c{i}_{item}_{j} Not Found *******')
 		print(f'All of the {item} names were tested')
 
@@ -101,17 +109,73 @@ def test_homing_names(parent):
 	for item in home_list:
 		for i in range(3):
 			for j in range (6):
-				if not parent.findChild(QObject, f'c{i}_{item}_{j}'):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
+					print(f'******* c{i}_{item}_{j} Not Found *******')
+		print(f'All of the {item} names were tested')
+
+def test_stepgen_names(parent):
+	print('test_stepgen_names')
+	'''
+	c0_drive_0 c0_step_time_0 c0_step_invert_0 c0_step_space_0 c0_dir_setup_0
+	c0_dir_invert_0 c0_dir_hold_0
+	'''
+
+	stepgen_list = ['drive', 'step_time', 'step_invert', 'step_space',
+	'dir_setup', 'dir_invert', 'dir_hold']
+
+	for item in stepgen_list:
+		for i in range(3):
+			for j in range (6):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
 					print(f'******* c{i}_{item}_{j} Not Found *******')
 		print(f'All of the {item} names were tested')
 
 def test_analog_names(parent):
 	print('test_analog_names')
+	'''
+	c0_analog_min_limit_0 c0_analog_max_limit_0 c0_analog_scale_max_0
+	c0_analog_default_0 c0_encoder_scale_0
+	'''
+
+	analog_list = ['analog_min_limit', 'analog_max_limit', 'analog_scale_max',
+	'analog_default', 'encoder_scale']
+
+	for item in analog_list:
+		for i in range(3):
+			for j in range (6):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
+					print(f'******* c{i}_{item}_{j} Not Found *******')
+		print(f'All of the {item} names were tested')
 
 def test_input_names(parent):
 	print('test_input_names')
+	'''
+	c0_input_0 c0_input_invert_0 c0_input_debounce_0
+	'''
+
+	input_list = ['input', 'input_invert', 'input_debounce']
+
+	for item in input_list:
+		for i in range(3):
+			for j in range (32):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
+					print(f'******* c{i}_{item}_{j} Not Found *******')
+		print(f'All of the {item} names were tested')
 
 def test_output_names(parent):
-	print('test_output_names')
+	'''
+	c0_output_0 c0_output_invert_0 c0_output_type_0
+	'''
+
+	output_list = ['output', 'output_invert', 'output_type']
+	for item in output_list:
+		for i in range(3):
+			for j in range (16):
+				if not parent.findChildren(QObject, f'c{i}_{item}_{j}'):
+					print(f'******* c{i}_{item}_{j} Not Found *******')
+		print(f'All of the {item} names were tested')
+
+def test_connection():
+	print('test')
 
 
