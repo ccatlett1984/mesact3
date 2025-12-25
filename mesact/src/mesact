@@ -8,6 +8,8 @@ from PyQt6.QtCore import QSettings, QTimer
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QProgressBar
 from PyQt6.uic import loadUi
 
+from libmesact import combos
+from libmesact import menus
 from libmesact import startup
 from libmesact import installed
 from libmesact import connections
@@ -36,18 +38,19 @@ class mesact(QMainWindow):
 			self.setStyleSheet(fh.read())
 
 		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
-		self.settings = QSettings('mesact3', 'mesact3')
+		self.settings = QSettings('mesact', 'mesact')
 		self.progress_bar = QProgressBar()
 		self.statusBar().addPermanentWidget(self.progress_bar)
 		self.downloader = None
 		self.timer=QTimer()
 
 		self.show()
-		#startup.get_installed(self)
-		installed.check(self)
-		startup.hide(self)
-		startup.combos(self)
+		installed.get_versions(self)
+		combos.build_combos(self)
+		menus.build_menus(self)
 		connections.connect(self)
+		startup.hide(self)
+		startup.load(self)
 
 		# remove after testing FIXME
 		tests.connect(self)

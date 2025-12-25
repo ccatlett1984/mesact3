@@ -3,22 +3,25 @@ import os
 from PyQt6.QtWidgets import QFileDialog
 from PyQt6.QtWidgets import QComboBox, QLabel, QLineEdit, QSpinBox
 from PyQt6.QtWidgets import QDoubleSpinBox, QCheckBox, QRadioButton
+from PyQt6.QtWidgets import QPushButton, QGroupBox
 
 from libmesact import dialogs
 from libmesact import utilities
 
-def open_ini(parent):
-	home_dir = os.path.expanduser("~")
-	config_dir = os.path.join(home_dir, 'linuxcnc/configs')
-	if not os.path.isdir(config_dir):
-		config_dir = home_dir
-	ini_file, _ = QFileDialog.getOpenFileName(parent, "Select INI File",
-		config_dir, '*.ini')
+def load_ini(parent, ini_file=None):
+	if not ini_file:
+		home_dir = os.path.expanduser("~")
+		config_dir = os.path.join(home_dir, 'linuxcnc/configs')
+		if not os.path.isdir(config_dir):
+			config_dir = home_dir
+		ini_file, _ = QFileDialog.getOpenFileName(parent, "Select INI File",
+			config_dir, '*.ini')
 
 	with open(ini_file, 'r') as file:
 		ini_list = file.readlines() # create a list of strings
 
 	# get start and stop indexes of each section
+	# starting at the end and working back to the start
 	file_length = len(ini_list)-1
 	sections = {}
 	start = 0
@@ -27,6 +30,9 @@ def open_ini(parent):
 		if line.startswith('['):
 			sections[line.strip()] = [file_length - index, end]
 			end = (file_length - index) - 1
+
+	# reverse backwards built dictionary
+	sections = dict(reversed(sections.items()))
 
 	if 'Mesa' not in ini_list[0] or '[MESA]' not in sections:
 		msg = (f'The INI file {os.path.basename(ini_file)}\n'
@@ -126,7 +132,6 @@ def open_ini(parent):
 				if key in emcot and value not in ['Select', 'None']:
 					update(parent, emcot[key], value)
 
-
 	# TASK
 
 	# HAL
@@ -156,28 +161,214 @@ def open_ini(parent):
 				key, value = [part.strip() for part in item.split('=', 1)]
 				if key == 'MDI_COMMAND' and value not in ['Select', 'None']:
 					if not parent.findChildren(QLineEdit, f'mdi_le_{row}'):
-						print('adding row')
 						utilities.add_mdi_row(parent)
-					else:
-						print(f'QLineEdit mdi_le_{row} found')
 					getattr(parent, f'mdi_le_{row}').setText(value)
 					row += 1
 
-
-
 	# APPLICATIONS
 
-	# TRAJ
+	# TRAJ # FIXME there are more options for traj
+	if '[TRAJ]' in sections:
+		traj_dict = {}
+		traj_dict['LINEAR_UNITS'] = 'linear_units_cb'
+		traj_dict['MAX_LINEAR_VELOCITY'] = 'traj_max_lin_vel_dsb'
+		traj_dict['NO_FORCE_HOMING'] = 'no_force_homing_cb'
+		start = sections['[TRAJ]'][0]
+		end = sections['[TRAJ]'][1]
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				if key in traj_dict and value not in ['Select', 'None']:
+					update(parent, traj_dict[key], value)
 
 	# KINS
 
 	# AXIS_
 
 	# JOINT_
+	for section in sections:
+		if section.startswith('[JOINT_'):
+			joint = section[-2].strip()
+
+			start = sections[f'[JOINT_{joint}]'][0]
+			end = sections[f'[JOINT_{joint}]'][1]
+
+			for item in ini_list[start + 1:end + 1]:
+				# CARD is the Board Tab
+				# TAB is the Drive
+				if item.startswith('CARD'):
+					key, value = [part.strip() for part in item.split('=', 1)]
+					board = value
+				elif item.startswith('TAB'):
+					key, value = [part.strip() for part in item.split('=', 1)]
+					joint = value
+
+			joint_dict = {}
+			joint_dict['AXIS'] = f'c{board}_axis_{joint}'
+			joint_dict['SCALE'] = f'c{board}_scale_{joint}'
+			joint_dict['MIN_LIMIT'] = f'c{board}_min_limit_{joint}'
+			joint_dict['MAX_LIMIT'] = f'c{board}_max_limit_{joint}'
+			joint_dict['MAX_VELOCITY'] = f'c{board}_max_vel_{joint}'
+			joint_dict['MAX_ACCELERATION'] = f'c{board}_max_accel_{joint}'
+			joint_dict['P'] = f'c{board}_p_{joint}'
+			joint_dict['I'] = f'c{board}_i_{joint}'
+			joint_dict['D'] = f'c{board}_d_{joint}'
+			joint_dict['FF0'] = f'c{board}_ff0_{joint}'
+			joint_dict['FF1'] = f'c{board}_ff1_{joint}'
+			joint_dict['FF2'] = f'c{board}_ff2_{joint}'
+			joint_dict['DEADBAND'] = f'c{board}_deadband_{joint}'
+			joint_dict['BIAS'] = f'c{board}_bias_{joint}'
+			joint_dict['MAX_OUTPUT'] = f'c{board}_max_output_{joint}'
+			joint_dict['MAX_ERROR'] = f'c{board}_max_error_{joint}'
+			joint_dict['MIN_FERROR'] = f'c{board}_min_ferror_{joint}'
+			joint_dict['MAX_FERROR'] = f'c{board}_max_ferror_{joint}'
+
+			joint_dict['HOME'] = f'c{board}_home_{joint}'
+			joint_dict['HOME_OFFSET'] = f'c{board}_home_offset_{joint}'
+			joint_dict['HOME_SEARCH_VEL'] = f'c{board}_home_search_vel_{joint}'
+			joint_dict['HOME_LATCH_VEL'] = f'c{board}_home_latch_vel_{joint}'
+			joint_dict['HOME_FINAL_VEL'] = f'c{board}_home_final_vel_{joint}'
+			joint_dict['HOME_SEQUENCE'] = f'c{board}_home_sequence_{joint}'
+			joint_dict['HOME_USE_INDEX'] = f'c{board}_home_use_index_{joint}'
+			joint_dict['HOME_IS_SHARED'] = f'c{board}_home_switch_shared_{joint}'
+			joint_dict['HOME_IGNORE_LIMITS'] = f'c{board}_home_ignore_limits_{joint}'
+
+			joint_dict['DRIVE'] = f'c{board}_drive_{joint}'
+			joint_dict['STEPLEN'] = f'c{board}_step_time_{joint}'
+			joint_dict['STEPSPACE'] = f'c{board}_step_space_{joint}'
+			joint_dict['DIRSETUP'] = f'c{board}_dir_setup_{joint}'
+			joint_dict['DIRHOLD'] = f'c{board}_dir_hold_{joint}'
+			joint_dict['STEP_INVERT'] = f'c{board}_step_invert_{joint}'
+			joint_dict['DIR_INVERT'] = f'c{board}_dir_invert_{joint}'
+
+			joint_dict['ANALOG_MIN_LIMIT'] = f'c{board}_analog_min_limit_{joint}'
+			joint_dict['ANALOG_MAX_LIMIT'] = f'c{board}_analog_max_limit_{joint}'
+			joint_dict['ANALOG_SCALE_MAX'] = f'c{board}_analog_scale_max_{joint}'
+			joint_dict['ENCODER_SCALE'] = f'c{board}_encoder_scale_{joint}'
+
+			for item in ini_list[start + 1:end + 1]:
+				if '=' in item:
+					key, value = [part.strip() for part in item.split('=', 1)]
+					if key in joint_dict and value not in ['Select', 'None']:
+						update(parent, joint_dict[key], value)
 
 	# SPINDLE_
 
 	# EMCIO
+
+	# INPUTS
+	if '[INPUTS]' in sections:
+		input_dict = {}
+		for i in range(3):
+			for j in range(32):
+				input_dict[f'INPUT_{i}_{j}'] = f'c{i}_input_{j}'
+				input_dict[f'INPUT_INVERT_{i}_{j}'] = f'c{i}_input_invert_{j}'
+				input_dict[f'INPUT_SLOW_{i}_{j}'] = f'c{i}_input_debounce_{j}'
+
+		start = sections[f'[INPUTS]'][0]
+		end = sections[f'[INPUTS]'][1]
+
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				#print(input_dict[key], value)
+				if key in input_dict and value not in ['Select', 'None']:
+					update(parent, input_dict[key], value)
+
+	# OUTPUTS
+	if '[OUTPUTS]' in sections:
+		output_dict = {}
+		for i in range(3):
+			for j in range(16):
+				output_dict[f'OUTPUT_{i}_{j}'] = f'c{i}_output_{j}'
+				output_dict[f'OUTPUT_INVERT_{i}_{j}'] = f'c{i}_output_invert_{j}'
+
+		start = sections[f'[OUTPUTS]'][0]
+		end = sections[f'[OUTPUTS]'][1]
+
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				#print(input_dict[key], value)
+				if key in output_dict and value not in ['Select', 'None']:
+					update(parent, output_dict[key], value)
+
+			sink = ''
+			source = ''
+			for item in ini_list[start + 1:end + 1]:
+				if item.strip().startswith('OUTPUT_SINK') and '=' in item:
+					sink = item.split('=')[1].strip()
+				if item.strip().startswith('OUTPUT_SOURCE') and '=' in item:
+					source = item.split('=')[1].strip()
+			if len(sink) == 16 and len(source) == 16:
+				for i in range(16):
+					if sink[i] == '1' and source[i] == '0': # sink
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(1)
+					elif sink[i] == '1' and source[i] == '1': # push pull
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(2)
+
+	# OPTIONS
+	if '[OPTIONS]' in sections:
+		options_dict = {}
+		options_dict['LOAD_CONFIG'] = 'load_config_cb'
+		options_dict['INTRO_GRAPHIC'] = 'intro_graphic_le'
+		options_dict['INTRO_GRAPHIC_TIME'] = 'splash_screen_sb'
+		options_dict['MANUAL_TOOL_CHANGE'] = 'manual_tool_change_cb'
+		options_dict['PYVCP'] = 'pyvcp_cb'
+		options_dict['LADDER'] = 'ladder_gb'
+		options_dict['BACKUP'] = 'backup_cb'
+
+		start = sections[f'[OPTIONS]'][0]
+		end = sections[f'[OPTIONS]'][1]
+
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				#print(input_dict[key], value)
+				if key in options_dict and value not in ['Select', 'None']:
+					update(parent, options_dict[key], value)
+
+	# PLC
+	if '[PLC]' in sections:
+		plc_dict = {}
+		plc_dict['LADDER_RUNGS'] = 'ladder_rungs_sb'
+		plc_dict['LADDER_BITS'] = 'ladder_bits_sb'
+		plc_dict['LADDER_WORDS'] = 'ladder_words_sb'
+		plc_dict['LADDER_TIMERS'] = 'ladder_timers_sb'
+		plc_dict['LADDER_IEC_TIMERS'] = 'ladder_iec_timer_sb'
+		plc_dict['LADDER_MONOSTABLES'] = 'ladder_monostables_sb'
+		plc_dict['LADDER_COUNTERS'] = 'ladder_counters_sb'
+		plc_dict['LADDER_HAL_INPUTS'] = 'ladder_inputs_sb'
+		plc_dict['LADDER_HAL_OUTPUTS'] = 'ladder_outputs_sb'
+		plc_dict['LADDER_FLOAT_INPUTS'] = 'ladder_float_inputs_sb'
+		plc_dict['LADDER_FLOAT_OUTPUTS'] = 'ladder_float_outputs_sb'
+		plc_dict['LADDER_S32_INPUTS'] = 'ladder_s32_inputs_sb'
+		plc_dict['LADDER_S32_OUTPUTS'] = 'ladder_s32_ouputs_sb'
+		plc_dict['LADDER_SECTIONS'] = 'ladder_sections_sb'
+		plc_dict['LADDER_SYMBOLS'] = 'ladder_symbols_sb'
+		plc_dict['LADDER_EXPRESSIONS'] = 'ladder_expresions_sb'
+
+		start = sections[f'[PLC]'][0]
+		end = sections[f'[PLC]'][1]
+
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				if key in plc_dict and value not in ['Select', 'None']:
+					update(parent, plc_dict[key], value)
+
+	# SSERIAL
+	if '[SSERIAL]' in sections:
+		start = sections[f'[SSERIAL]'][0]
+		end = sections[f'[SSERIAL]'][1]
+
+		for item in ini_list[start + 1:end + 1]:
+			if '=' in item:
+				key, value = [part.strip() for part in item.split('=', 1)]
+				if key == 'SS_CARD':
+					update(parent, 'ss_card_cb', value)
+				elif key.startswith('ss'):
+					update(parent, key, value)
 
 def update(parent, obj, value):
 	booleanDict = {'true': True, 'yes': True, '1': True,
@@ -202,8 +393,12 @@ def update(parent, obj, value):
 		getattr(parent, obj).setChecked(booleanDict[value.lower()])
 	elif isinstance(getattr(parent, obj), QRadioButton):
 		getattr(parent, obj).setChecked(booleanDict[value.lower()])
+	elif isinstance(getattr(parent, obj), QPushButton):
+		getattr(parent, obj).setText(value)
+	elif isinstance(getattr(parent, obj), QGroupBox):
+		getattr(parent, obj).setChecked(booleanDict[value.lower()])
 	else:
-		print('Unknown object')
+		print(f'Unknown object {obj}')
 
 
 

@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1727,6 +1727,22 @@ to the clipboard</string>
           </layout>
          </widget>
         </item>
+        <item row="2" column="3">
+         <widget class="QGroupBox" name="groupBox_8">
+          <property name="title">
+           <string>Homing</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_40">
+           <item>
+            <widget class="QCheckBox" name="no_force_homing_cb">
+             <property name="text">
+              <string>Not Forced</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="card_0">
@@ -1737,7 +1753,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_3">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -12401,7 +12417,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_4">
           <property name="currentIndex">
-           <number>0</number>
+           <number>7</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
@@ -22828,7 +22844,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_5">
           <property name="currentIndex">
-           <number>0</number>
+           <number>7</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -43325,7 +43341,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>4</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -43422,13 +43438,6 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               <widget class="QCheckBox" name="pyvcp_cb">
                <property name="text">
                 <string>PyVCP Panel</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QCheckBox" name="gladevcp_cb">
-               <property name="text">
-                <string>GladeVCP Panel</string>
                </property>
               </widget>
              </item>
@@ -43957,28 +43966,6 @@ reload all default PID values</string>
              </item>
             </layout>
            </widget>
-           <widget class="QGroupBox" name="groupBox_71">
-            <property name="geometry">
-             <rect>
-              <x>50</x>
-              <y>240</y>
-              <width>171</width>
-              <height>61</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Homing Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_50">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="noforcehoming_cb">
-               <property name="text">
-                <string>No Force Homing</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_161">
            <attribute name="title">
@@ -44085,10 +44072,115 @@ reload all default PID values</string>
            <bool>false</bool>
           </property>
           <layout class="QGridLayout" name="gridLayout_349">
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_1197">
+           <item row="7" column="1">
+            <widget class="QSpinBox" name="ladder_iec_timer_sb">
+             <property name="option" stdset="0">
+              <string>numTimersIec</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_IEC_TIMERS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_1206">
              <property name="text">
-              <string>Words</string>
+              <string>IEC Timers</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_1189">
+             <property name="text">
+              <string>Default</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLabel" name="label_1207">
+             <property name="text">
+              <string>20</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_1216">
+             <property name="text">
+              <string>Optional Settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="4">
+            <widget class="QSpinBox" name="ladder_sections_sb">
+             <property name="option" stdset="0">
+              <string>numSections</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_SECTIONS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="4">
+            <widget class="QSpinBox" name="ladder_symbols_sb">
+             <property name="option" stdset="0">
+              <string>numSymbols</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_SYMBOLS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLabel" name="label_1190">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_1194">
+             <property name="text">
+              <string>Counters</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QSpinBox" name="ladder_words_sb">
+             <property name="option" stdset="0">
+              <string>numWords</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_WORDS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_1192">
+             <property name="text">
+              <string>Bits</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QLabel" name="label_1202">
+             <property name="text">
+              <string>15</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="3">
+            <widget class="QLabel" name="label_1196">
+             <property name="text">
+              <string>Sections</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -44108,207 +44200,24 @@ reload all default PID values</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="5">
-            <widget class="QLabel" name="label_1202">
-             <property name="text">
-              <string>15</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="3">
-            <widget class="QLabel" name="label_1204">
-             <property name="text">
-              <string>S32 Inputs</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="label_1183">
-             <property name="text">
-              <string>20</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QSpinBox" name="ladder_bits_sb">
-             <property name="option" stdset="0">
-              <string>numBits</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_BITS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="0">
-            <widget class="QLabel" name="label_1185">
-             <property name="text">
-              <string>Monostables</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="4">
-            <widget class="QSpinBox" name="ladder_s32_ouputs_sb">
-             <property name="option" stdset="0">
-              <string>numS32out</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_S32_OUTPUTS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="2">
-            <widget class="QLabel" name="label_1193">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="4">
-            <widget class="QSpinBox" name="ladder_expresions_sb">
-             <property name="option" stdset="0">
-              <string>numArithmExpr</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_EXPRESSIONS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="2">
-            <widget class="QLabel" name="label_1195">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="5">
-            <widget class="QLabel" name="label_1212">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_1192">
-             <property name="text">
-              <string>Bits</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_1188">
-             <property name="text">
-              <string>Timers</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="5">
-            <widget class="QLabel" name="label_1214">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="4">
-            <widget class="QSpinBox" name="ladder_float_inputs_sb">
-             <property name="option" stdset="0">
-              <string>numFloatIn</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_FLOAT_INPUTS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_1206">
-             <property name="text">
-              <string>IEC Timers</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="label_1207">
-             <property name="text">
-              <string>20</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="2">
-            <widget class="QLabel" name="label_1199">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="4">
-            <widget class="QSpinBox" name="ladder_float_outputs_sb">
-             <property name="option" stdset="0">
-              <string>numFloatOut</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_FLOAT_OUTPUTS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="3">
-            <widget class="QLabel" name="label_1208">
-             <property name="text">
-              <string>Symbols</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="5">
-            <widget class="QLabel" name="label_1213">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="2">
+           <item row="11" column="2">
             <widget class="QLabel" name="label_1198">
              <property name="text">
               <string>15</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="4">
-            <widget class="QSpinBox" name="ladder_symbols_sb">
-             <property name="option" stdset="0">
-              <string>numSymbols</string>
+           <item row="11" column="3">
+            <widget class="QLabel" name="label_1200">
+             <property name="text">
+              <string>Arithmatic Expresions</string>
              </property>
-             <property name="item" stdset="0">
-              <string>LADDER_SYMBOLS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <widget class="QSpinBox" name="ladder_counters_sb">
-             <property name="option" stdset="0">
-              <string>numCounters</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_COUNTERS</string>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="4" column="4">
+           <item row="6" column="4">
             <widget class="QSpinBox" name="ladder_s32_inputs_sb">
              <property name="option" stdset="0">
               <string>numS32in</string>
@@ -44318,41 +44227,31 @@ reload all default PID values</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="2">
-            <widget class="QLabel" name="label_1190">
+           <item row="7" column="2">
+            <widget class="QLabel" name="label_1193">
              <property name="text">
               <string>10</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="5">
-            <widget class="QLabel" name="label_1201">
+           <item row="2" column="3">
+            <widget class="QLabel" name="label_1191">
              <property name="text">
-              <string>50</string>
+              <string>HAL Outputs</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="10" column="4">
-            <widget class="QSpinBox" name="ladder_outputs_sb">
-             <property name="option" stdset="0">
-              <string>numPhysOutputs</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_HAL_OUTPUTS</string>
+           <item row="9" column="2">
+            <widget class="QLabel" name="label_1199">
+             <property name="text">
+              <string>10</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
-            <widget class="QSpinBox" name="ladder_timers_sb">
-             <property name="option" stdset="0">
-              <string>numTimers</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_TIMERS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="3">
+           <item row="7" column="3">
             <widget class="QLabel" name="label_1209">
              <property name="text">
               <string>S32 Outputs</string>
@@ -44362,44 +44261,44 @@ reload all default PID values</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="label_1189">
+           <item row="11" column="5">
+            <widget class="QLabel" name="label_1201">
              <property name="text">
-              <string>Default</string>
+              <string>50</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="3">
-            <widget class="QLabel" name="label_1210">
-             <property name="text">
-              <string>Float Outputs</string>
+           <item row="11" column="1">
+            <widget class="QSpinBox" name="ladder_inputs_sb">
+             <property name="option" stdset="0">
+              <string>numPhysInputs</string>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="3">
-            <widget class="QLabel" name="label_1205">
-             <property name="text">
-              <string>Float Inputs</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <property name="item" stdset="0">
+              <string>LADDER_HAL_INPUTS</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="5">
-            <widget class="QLabel" name="label_1215">
+           <item row="7" column="5">
+            <widget class="QLabel" name="label_1213">
              <property name="text">
               <string>10</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_1216">
+           <item row="6" column="5">
+            <widget class="QLabel" name="label_1212">
              <property name="text">
-              <string>Optional Settings</string>
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QSpinBox" name="ladder_monostables_sb">
+             <property name="option" stdset="0">
+              <string>numMonostables</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_MONOSTABLES</string>
              </property>
             </widget>
            </item>
@@ -44413,124 +44312,13 @@ reload all default PID values</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="label_1186">
-             <property name="text">
-              <string>100</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="5">
-            <widget class="QLabel" name="label_1211">
-             <property name="text">
-              <string>Auto</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="3">
-            <widget class="QLabel" name="label_1196">
-             <property name="text">
-              <string>Sections</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QSpinBox" name="ladder_iec_timer_sb">
-             <property name="option" stdset="0">
-              <string>numTimersIec</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_IEC_TIMERS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="3">
-            <widget class="QLabel" name="label_1191">
-             <property name="text">
-              <string>HAL Outputs</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="0">
+           <item row="11" column="0">
             <widget class="QLabel" name="label_1187">
              <property name="text">
               <string>HAL Inputs</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="1">
-            <widget class="QSpinBox" name="ladder_monostables_sb">
-             <property name="option" stdset="0">
-              <string>numMonostables</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_MONOSTABLES</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="5">
-            <widget class="QLabel" name="label_1203">
-             <property name="text">
-              <string>10</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="0">
-            <widget class="QLabel" name="label_1194">
-             <property name="text">
-              <string>Counters</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="3">
-            <widget class="QLabel" name="label_1200">
-             <property name="text">
-              <string>Arithmatic Expresions</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QSpinBox" name="ladder_words_sb">
-             <property name="option" stdset="0">
-              <string>numWords</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_WORDS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1">
-            <widget class="QSpinBox" name="ladder_inputs_sb">
-             <property name="option" stdset="0">
-              <string>numPhysInputs</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_HAL_INPUTS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="4">
-            <widget class="QSpinBox" name="ladder_sections_sb">
-             <property name="option" stdset="0">
-              <string>numSections</string>
-             </property>
-             <property name="item" stdset="0">
-              <string>LADDER_SECTIONS</string>
              </property>
             </widget>
            </item>
@@ -44541,6 +44329,205 @@ reload all default PID values</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QSpinBox" name="ladder_bits_sb">
+             <property name="option" stdset="0">
+              <string>numBits</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_BITS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QSpinBox" name="ladder_timers_sb">
+             <property name="option" stdset="0">
+              <string>numTimers</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_TIMERS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <widget class="QLabel" name="label_1208">
+             <property name="text">
+              <string>Symbols</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="label_1186">
+             <property name="text">
+              <string>100</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="QLabel" name="label_1195">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="4">
+            <widget class="QSpinBox" name="ladder_expresions_sb">
+             <property name="option" stdset="0">
+              <string>numArithmExpr</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_EXPRESSIONS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_1183">
+             <property name="text">
+              <string>20</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_1197">
+             <property name="text">
+              <string>Words</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="5">
+            <widget class="QLabel" name="label_1211">
+             <property name="text">
+              <string>Auto</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
+            <widget class="QLabel" name="label_1204">
+             <property name="text">
+              <string>S32 Inputs</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4">
+            <widget class="QSpinBox" name="ladder_s32_ouputs_sb">
+             <property name="option" stdset="0">
+              <string>numS32out</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_S32_OUTPUTS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="5">
+            <widget class="QLabel" name="label_1203">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_1185">
+             <property name="text">
+              <string>Monostables</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_1188">
+             <property name="text">
+              <string>Timers</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QSpinBox" name="ladder_outputs_sb">
+             <property name="option" stdset="0">
+              <string>numPhysOutputs</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_HAL_OUTPUTS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QSpinBox" name="ladder_counters_sb">
+             <property name="option" stdset="0">
+              <string>numCounters</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_COUNTERS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="label_1210">
+             <property name="text">
+              <string>Float Outputs</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <widget class="QSpinBox" name="ladder_float_outputs_sb">
+             <property name="option" stdset="0">
+              <string>numFloatOut</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_FLOAT_OUTPUTS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="5">
+            <widget class="QLabel" name="label_1215">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLabel" name="label_1205">
+             <property name="text">
+              <string>Float Inputs</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="QSpinBox" name="ladder_float_inputs_sb">
+             <property name="option" stdset="0">
+              <string>numFloatIn</string>
+             </property>
+             <property name="item" stdset="0">
+              <string>LADDER_FLOAT_INPUTS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="5">
+            <widget class="QLabel" name="label_1214">
+             <property name="text">
+              <string>10</string>
              </property>
             </widget>
            </item>
@@ -46073,7 +46060,6 @@ auto enp2s0
   <tabstop>tabWidget_27</tabstop>
   <tabstop>manual_tool_change_cb</tabstop>
   <tabstop>pyvcp_cb</tabstop>
-  <tabstop>gladevcp_cb</tabstop>
   <tabstop>jog_increments</tabstop>
   <tabstop>intro_graphic_le</tabstop>
   <tabstop>splash_screen_sb</tabstop>
@@ -46092,7 +46078,6 @@ auto enp2s0
   <tabstop>add_mdi_command_pb</tabstop>
   <tabstop>servo_period_sb</tabstop>
   <tabstop>debug_cb</tabstop>
-  <tabstop>noforcehoming_cb</tabstop>
   <tabstop>new_user_cb</tabstop>
   <tabstop>readme_pte</tabstop>
   <tabstop>ladder_gb</tabstop>
@@ -46104,14 +46089,6 @@ auto enp2s0
   <tabstop>ladder_monostables_sb</tabstop>
   <tabstop>ladder_counters_sb</tabstop>
   <tabstop>ladder_inputs_sb</tabstop>
-  <tabstop>ladder_float_outputs_sb</tabstop>
-  <tabstop>ladder_float_inputs_sb</tabstop>
-  <tabstop>ladder_s32_inputs_sb</tabstop>
-  <tabstop>ladder_s32_ouputs_sb</tabstop>
-  <tabstop>ladder_sections_sb</tabstop>
-  <tabstop>ladder_symbols_sb</tabstop>
-  <tabstop>ladder_expresions_sb</tabstop>
-  <tabstop>ladder_outputs_sb</tabstop>
   <tabstop>tabWidget_3</tabstop>
   <tabstop>servo_thread_tmax_pb</tabstop>
   <tabstop>st_thread_tmax_sb</tabstop>

@@ -80,10 +80,10 @@ def versions(parent):
 	parent.python_lb.setText(python_version())
 	parent.pyqt_lb.setText(qVersion())
 
-def check(parent):
-	get_versions = Thread(target=versions, args=(parent,))
-	get_versions.start()
-	get_versions.join()
+def get_versions(parent):
+	versions_thread = Thread(target=versions, args=(parent,))
+	versions_thread.start()
+	versions_thread.join()
 
 
 

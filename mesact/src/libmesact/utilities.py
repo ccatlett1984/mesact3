@@ -64,6 +64,9 @@ def add_mdi_row(parent):
 	setattr(parent, f'mdi_le_{rows}', le) # add name to parent
 	parent.mdi_grid_layout.addWidget(le, rows, 1)
 
+def changed(parent): # if anything is changed add * to title
+	parent.status_lb.setText('Config Changed')
+	parent.actionBuild.setText('Build Config *')
 
 
 
