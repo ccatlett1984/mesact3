@@ -1,6 +1,5 @@
 import shutil
 
-
 def build_combos(parent):
 	# Machine Tab Board Name, HAL Name
 	boards = [
@@ -79,7 +78,7 @@ def build_combos(parent):
 			editor_list.append([key, value])
 
 	if editor_list:
-		parent.editor_cb.addItem('Select', False)
+		parent.editor_cb.addItem('None', False)
 		for item in editor_list:
 			parent.editor_cb.addItem(item[0], item[1])
 	else:

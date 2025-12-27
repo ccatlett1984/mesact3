@@ -1,7 +1,15 @@
-import os
+import os, subprocess
+from datetime import datetime
 
 from PyQt6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QCheckBox
 from PyQt6.QtWidgets import QFileDialog, QLabel
+
+def is_number(s):
+	try:
+		float(s)
+		return True
+	except ValueError:
+		return False
 
 def new_config(parent):
 	# set main tab visibility
@@ -49,11 +57,42 @@ def open_manual(parent):
 
 def machine_name_changed(parent, text):
 	if text:
-		parent.machine_name_underscored = text.replace(' ','_').lower()
-		parent.config_path = os.path.expanduser('~/linuxcnc/configs') + '/' + parent.machine_name_underscored
+		parent.machine_name = text.replace(' ','_').lower()
+		parent.config_path = os.path.expanduser('~/linuxcnc/configs') + '/' + parent.machine_name
 		parent.config_path_lb.setText(parent.config_path)
+		parent.ini_path = os.path.join(parent.config_path, f'{parent.machine_name}.ini')
 	else:
 		parent.pathLabel.setText('')
+		parent.config_path = False
+		parent.ini_path = False
+
+def toggle_mdi(parent):
+	if parent.sender().isChecked():
+		parent.mdi_commands_gb.setEnabled(True)
+	else:
+		parent.mdi_commands_gb.setEnabled(False)
+
+def changed(parent): # if anything is changed add * to title
+	parent.status_lb.setText('Config Changed')
+	parent.actionBuild.setText('Build Config *')
+
+def backup_files(parent, config_path=None):
+	parent.main_tw.setCurrentIndex(11)
+	if not config_path:
+		config_path = parent.config_path
+	if not os.path.exists(config_path):
+		parent.info_pte.setPlainText('Nothing found to Back Up')
+		return
+	backup_dir = os.path.join(config_path, 'backups')
+	if not os.path.exists(backup_dir):
+		os.mkdir(backup_dir)
+	p1 = subprocess.Popen(['find',config_path,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
+	backup_file = os.path.join(backup_dir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
+	p2 = subprocess.Popen(['zip','-j',backup_file,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
+	p1.stdout.close()
+	parent.info_pte.appendPlainText('Backing up Confguration')
+	output = p2.communicate()[0]
+	parent.info_pte.appendPlainText(output.decode())
 
 def add_mdi_row(parent):
 	rows = parent.mdi_grid_layout.rowCount()
@@ -63,27 +102,7 @@ def add_mdi_row(parent):
 	le.setObjectName(f'mdi_le_{rows}')
 	setattr(parent, f'mdi_le_{rows}', le) # add name to parent
 	parent.mdi_grid_layout.addWidget(le, rows, 1)
-
-def changed(parent): # if anything is changed add * to title
-	parent.status_lb.setText('Config Changed')
-	parent.actionBuild.setText('Build Config *')
-
-def backup_files(parent, config_path=None):
-	if not config_path:
-		config_path = parent.config_path
-	if not os.path.exists(config_path):
-		parent.info_pte.setPlainText('Nothing to Back Up')
-		return
-	backupDir = os.path.join(config_path, 'backups')
-	if not os.path.exists(backupDir):
-		os.mkdir(backupDir)
-	p1 = subprocess.Popen(['find',config_path,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
-	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H-%M-%S}')
-	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
-	p1.stdout.close()
-	parent.info_pte.appendPlainText('Backing up Confguration')
-	output = p2.communicate()[0]
-	parent.info_pte.appendPlainText(output.decode())
-
+	getattr(parent, f'mdi_le_{rows}').setFocus()
+	getattr(parent, f'mdi_le_{rows}').returnPressed.connect(partial(add_mdi_row, parent))
 
 

@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -177,7 +177,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLabel" name="emcVersion_lb">
+            <widget class="QLabel" name="emc_version_lb">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -460,7 +460,7 @@
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
               <item row="1" column="0">
-               <widget class="QComboBox" name="daughter_1_cb"/>
+               <widget class="QComboBox" name="daughter_cb_1"/>
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="label_6">
@@ -473,10 +473,10 @@
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QComboBox" name="daughter_2_cb"/>
+               <widget class="QComboBox" name="daughter_cb_2"/>
               </item>
               <item row="1" column="1">
-               <widget class="QLabel" name="daughter_1_lb">
+               <widget class="QLabel" name="daughter_lb_1">
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
@@ -495,7 +495,7 @@
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLabel" name="daughter_2_lb">
+               <widget class="QLabel" name="daughter_lb_2">
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
@@ -1104,643 +1104,1292 @@ to the clipboard</string>
         <string>Settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_451">
-        <item row="0" column="4" rowspan="2">
-         <widget class="QGroupBox" name="groupBox_134">
-          <property name="title">
-           <string>Machine Settings</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_306">
-           <item row="1" column="0">
-            <widget class="QDoubleSpinBox" name="traj_max_lin_vel_dsb">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>25</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="max_lin_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="label_37">
-             <property name="text">
-              <string>Max Linear Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QLabel" name="mlv_per_min_lb">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="3" column="0" colspan="2">
-         <widget class="QGroupBox" name="groupBox_61">
-          <property name="title">
-           <string>Jog Slider Settings</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_107">
-           <item row="5" column="3">
-            <widget class="QLabel" name="max_angular_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_1110">
-             <property name="text">
-              <string>Default Angular Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_1111">
-             <property name="text">
-              <string>Maximum Angular Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="max_lin_jog_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="min_ang_jog_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string>deg/sec</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QDoubleSpinBox" name="min_lin_jog_vel_dsb">
-             <property name="maximumSize">
-              <size>
-               <width>75</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="3">
-            <widget class="QLabel" name="min_angular_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="3">
-            <widget class="QLabel" name="def_angular_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="def_ang_jog_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string>deg/sec</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_1108">
-             <property name="text">
-              <string>Maximum Linear Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="2">
-            <widget class="QLabel" name="max_ang_jog_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string>deg/sec</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QDoubleSpinBox" name="max_lin_jog_vel_dsb">
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QDoubleSpinBox" name="min_ang_jog_vel_dsb">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="suffix">
-              <string/>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_1107">
-             <property name="text">
-              <string>Minimum Linear Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_21">
-             <property name="text">
-              <string>Default Linear Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="min_lin_jog_lb">
-             <property name="maximumSize">
-              <size>
-               <width>75</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QDoubleSpinBox" name="def_ang_jog_vel_dsb">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="suffix">
-              <string/>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_1109">
-             <property name="text">
-              <string>Minimum Angular Velocity</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QDoubleSpinBox" name="def_lin_jog_vel_dsb">
-             <property name="suffix">
-              <string/>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-             <property name="value">
-              <double>0.000000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="default_lin_jog_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="min_linear_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QLabel" name="def_linear_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
-            <widget class="QLabel" name="max_linear_vel_lb">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QDoubleSpinBox" name="max_ang_jog_vel_dsb">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="suffix">
-              <string/>
-             </property>
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>500.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="0" column="0" rowspan="3">
-         <widget class="QGroupBox" name="gridGroupBox_5">
-          <property name="styleSheet">
-           <string notr="true"/>
+         <widget class="QTabWidget" name="tabWidget_6">
+          <property name="currentIndex">
+           <number>4</number>
           </property>
-          <property name="title">
-           <string>Display</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_47">
-           <property name="leftMargin">
-            <number>9</number>
-           </property>
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <property name="rightMargin">
-            <number>9</number>
-           </property>
-           <property name="bottomMargin">
-            <number>9</number>
-           </property>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_41">
-             <property name="text">
-              <string>Position Offset</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_42">
-             <property name="text">
-              <string>Position Feedback</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Maximum Feed Override</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="gui_cb">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For GUI's not listed type in the name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_40">
-             <property name="text">
-              <string>GUI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QComboBox" name="position_offset_cb"/>
-           </item>
-           <item row="3" column="1">
-            <widget class="QComboBox" name="position_feedback_cb"/>
-           </item>
-           <item row="4" column="1">
-            <widget class="QDoubleSpinBox" name="max_feed_override_sb">
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>2.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-             <property name="value">
-              <double>1.200000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="label_179">
-             <property name="text">
-              <string>1.0 = 100%</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Linear Units</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="linear_units_cb"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="3" column="2" colspan="3">
-         <widget class="QGroupBox" name="flex_gui_gb">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="title">
-           <string>Flex GUI Options</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_51">
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="custom_qss_le"/>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QCheckBox" name="keyboard_qss_cb">
-             <property name="text">
-              <string>Keyboard input QSS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_761">
-             <property name="text">
-              <string>GUI Template</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <spacer name="verticalSpacer_77">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_760">
-             <property name="text">
-              <string>Custom QSS File</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QCheckBox" name="touch_qss_cb">
-             <property name="text">
-              <string>Touch Screen Input QSS</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="flex_gui_le"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_762">
-             <property name="text">
-              <string>Screen Size</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QComboBox" name="flex_size_cb"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="4">
-         <spacer name="verticalSpacer_56">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="1" rowspan="2" colspan="2">
-         <widget class="QGroupBox" name="groupBox_60">
-          <property name="title">
-           <string>G code Editor</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_45">
-           <item row="0" column="0">
-            <widget class="QComboBox" name="editor_cb"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="1" colspan="2">
-         <widget class="QGroupBox" name="gridGroupBox_4">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="title">
-           <string>Axis Display Options</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_32">
-           <item row="1" column="0">
-            <widget class="QRadioButton" name="backtool_lathe_rb">
-             <property name="text">
-              <string>Back Tool Lathe</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">axisButtonGroup</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QRadioButton" name="front_tool_lathe_rb">
-             <property name="text">
-              <string>Front Tool Lathe</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">axisButtonGroup</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QRadioButton" name="foam_rb">
-             <property name="text">
-              <string>Foam</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">axisButtonGroup</string>
-             </attribute>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="title">
-           <string>HAL</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_39">
-           <item>
-            <widget class="QCheckBox" name="custom_hal_cb">
-             <property name="text">
-              <string>Custom HAL</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="postgui_hal_cb">
-             <property name="text">
-              <string>Post GUI HAL</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="shutdown_hal_cb">
-             <property name="text">
-              <string>Shutdown HAL</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="halui_cb">
-             <property name="text">
-              <string>Halui Interface</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QGroupBox" name="groupBox_8">
-          <property name="title">
-           <string>Homing</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_40">
-           <item>
-            <widget class="QCheckBox" name="no_force_homing_cb">
-             <property name="text">
-              <string>Not Forced</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QWidget" name="tab_166">
+           <attribute name="title">
+            <string>Display</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_424">
+            <item row="1" column="2">
+             <widget class="QGroupBox" name="groupBox_60">
+              <property name="title">
+               <string>G code Editor</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_45">
+               <item row="0" column="0">
+                <widget class="QComboBox" name="editor_cb"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QGroupBox" name="groupBox_138">
+              <property name="title">
+               <string>Debug Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_345">
+               <item row="0" column="0">
+                <widget class="QComboBox" name="debug_cb"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="groupBox_134">
+              <property name="title">
+               <string>Machine Settings</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_306">
+               <item row="1" column="1">
+                <widget class="QLabel" name="max_lin_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QLabel" name="mlv_per_min_lb">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QDoubleSpinBox" name="traj_max_lin_vel_dsb">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>25</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_37">
+                 <property name="text">
+                  <string>Max Linear Velocity</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <spacer name="verticalSpacer_56">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="0" rowspan="2">
+             <widget class="QGroupBox" name="gridGroupBox_5">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="title">
+               <string>Display</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_47">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>15</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_41">
+                 <property name="text">
+                  <string>Position Offset</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>Max Feed Override</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="gui_cb">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For GUI's not listed type in the name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_40">
+                 <property name="text">
+                  <string>GUI</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Linear Units</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="linear_units_cb"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="position_feedback_cb"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_42">
+                 <property name="text">
+                  <string>Position Feedback</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QDoubleSpinBox" name="max_feed_override_dsb">
+                 <property name="toolTip">
+                  <string>1.0 = 100%</string>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>2.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>1.200000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="position_offset_cb"/>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_179">
+                 <property name="text">
+                  <string>*</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_778">
+                 <property name="text">
+                  <string>*</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QGroupBox" name="groupBox_101">
+              <property name="title">
+               <string>Manual Tool Change</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_204">
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="manual_tool_change_cb">
+                 <property name="text">
+                  <string>On Screen Prompt</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_203">
+           <attribute name="title">
+            <string>Jog Settings</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_403">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_61">
+              <property name="minimumSize">
+               <size>
+                <width>425</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Jog Slider Settings</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_107">
+               <item row="5" column="3">
+                <widget class="QLabel" name="max_angular_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_1110">
+                 <property name="text">
+                  <string>Default Angular Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_1111">
+                 <property name="text">
+                  <string>Maximum Angular Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="max_lin_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="min_ang_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>deg/sec</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QDoubleSpinBox" name="min_lin_jog_vel_dsb">
+                 <property name="maximumSize">
+                  <size>
+                   <width>75</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QLabel" name="min_angular_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QLabel" name="def_angular_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="def_ang_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>deg/sec</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1108">
+                 <property name="text">
+                  <string>Maximum Linear Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLabel" name="max_ang_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>deg/sec</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QDoubleSpinBox" name="max_lin_jog_vel_dsb">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QDoubleSpinBox" name="min_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1107">
+                 <property name="text">
+                  <string>Minimum Linear Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_21">
+                 <property name="text">
+                  <string>Default Linear Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="min_lin_jog_lb">
+                 <property name="maximumSize">
+                  <size>
+                   <width>75</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QDoubleSpinBox" name="def_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1109">
+                 <property name="text">
+                  <string>Minimum Angular Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QDoubleSpinBox" name="def_lin_jog_vel_dsb">
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>0.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="default_lin_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="min_linear_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="def_linear_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QLabel" name="max_linear_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QDoubleSpinBox" name="max_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_147">
+              <property name="title">
+               <string>Jog Increments</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_327">
+               <item row="0" column="0">
+                <widget class="QLineEdit" name="jog_increments"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_755">
+                 <property name="text">
+                  <string>Comma seperated list optionally followed
+by a unit (cm, mm, um, inch, in or mil)</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_167">
+           <attribute name="title">
+            <string>Flex GUI</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_310">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="flex_gui_gb">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Flex GUI Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_51">
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="custom_qss_le">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QCheckBox" name="keyboard_qss_cb">
+                 <property name="text">
+                  <string>Keyboard input QSS</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_761">
+                 <property name="text">
+                  <string>GUI Template</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <spacer name="verticalSpacer_77">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_760">
+                 <property name="text">
+                  <string>Custom QSS File</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QCheckBox" name="touch_qss_cb">
+                 <property name="text">
+                  <string>Touch Screen Input QSS</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="flex_gui_le">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_762">
+                 <property name="text">
+                  <string>Screen Size</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="flex_size_cb">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_168">
+           <attribute name="title">
+            <string>Axis GUI</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_196">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="gridGroupBox_4">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="title">
+               <string>Axis Display Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_32">
+               <item row="2" column="0">
+                <widget class="QRadioButton" name="backtool_lathe_rb">
+                 <property name="text">
+                  <string>Back Tool Lathe</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">axisButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QRadioButton" name="foam_rb">
+                 <property name="text">
+                  <string>Foam</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">axisButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QRadioButton" name="front_tool_lathe_rb">
+                 <property name="text">
+                  <string>Front Tool Lathe</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">axisButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QRadioButton" name="radioButton">
+                 <property name="text">
+                  <string>Normal Display</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">axisButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <spacer name="horizontalSpacer_51">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="splash_screen_gb">
+              <property name="title">
+               <string>Include Splash Screen</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_308">
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_934">
+                 <property name="text">
+                  <string>Display Seconds</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="intro_graphic_le">
+                 <property name="text">
+                  <string>emc2.gif</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_935">
+                 <property name="text">
+                  <string>Intro Graphic</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="splash_screen_sb">
+                 <property name="value">
+                  <number>5</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <spacer name="verticalSpacer_80">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_204">
+           <attribute name="title">
+            <string>Halui</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_50">
+            <item row="0" column="0">
+             <widget class="QCheckBox" name="halui_cb">
+              <property name="text">
+               <string>Add the Halui Interface</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="mdi_commands_gb">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="title">
+               <string>MDI Commands</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_312">
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_779">
+                 <property name="text">
+                  <string>Press Enter to add MDI Command</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <widget class="QLabel" name="label_1391">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>HALUI MDI Commands must be one per line</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="3">
+                <widget class="QScrollArea" name="scrollArea">
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>712</width>
+                    <height>259</height>
+                   </rect>
+                  </property>
+                  <layout class="QGridLayout" name="mdiCommandsListGL">
+                   <item row="0" column="0" alignment="Qt::AlignTop">
+                    <widget class="QWidget" name="mdi_container" native="true">
+                     <layout class="QGridLayout" name="mdi_grid_layout">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_27">
+                        <property name="text">
+                         <string>MDI Command</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="mdi_le_0"/>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QPushButton" name="add_mdi_command_pb">
+                 <property name="text">
+                  <string>Add Another MDI Command</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_205">
+           <attribute name="title">
+            <string>Read Me</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_67">
+            <item>
+             <widget class="QGroupBox" name="groupBox_221">
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>ReadMe File</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_436">
+               <item row="1" column="0" colspan="2">
+                <widget class="QPlainTextEdit" name="readme_pte">
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1482">
+                 <property name="text">
+                  <string>Text entered here will be put in the README file in the configuration directory, if blank none will be created</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_202">
+           <attribute name="title">
+            <string>Misc</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_201">
+            <item row="2" column="0">
+             <spacer name="verticalSpacer_78">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_137">
+              <property name="title">
+               <string>VCP Panels</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_309">
+               <property name="topMargin">
+                <number>15</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="pyvcp_cb">
+                 <property name="text">
+                  <string>PyVCP Panel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="4" rowspan="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_99">
+              <property name="title">
+               <string>Thread Period</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_202">
+               <item row="0" column="0">
+                <widget class="QSpinBox" name="servo_period_sb">
+                 <property name="suffix">
+                  <string>us</string>
+                 </property>
+                 <property name="minimum">
+                  <number>10000</number>
+                 </property>
+                 <property name="maximum">
+                  <number>2500000</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>10000</number>
+                 </property>
+                 <property name="value">
+                  <number>1000000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_359">
+                 <property name="text">
+                  <string>If you change the Thread Period
+reload all default PID values</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="groupBox_8">
+              <property name="title">
+               <string>Homing</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_40">
+               <item>
+                <widget class="QCheckBox" name="no_force_homing_cb">
+                 <property name="statusTip">
+                  <string>Set No Force Homing</string>
+                 </property>
+                 <property name="text">
+                  <string>Not Forced</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_10">
+              <property name="title">
+               <string>Directories</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_41">
+               <item>
+                <widget class="QCheckBox" name="subroutine_cb">
+                 <property name="toolTip">
+                  <string>Create the linuxcnc/subroutines
+directory if it does not exist</string>
+                 </property>
+                 <property name="text">
+                  <string>Subroutines</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <spacer name="verticalSpacer_79">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0" rowspan="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_100">
+              <property name="title">
+               <string>Motion Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_203">
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_211">
+                 <property name="text">
+                  <string>Extra Joints</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1300">
+                 <property name="text">
+                  <string>Joints</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QSpinBox" name="num_dio_sb">
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>64</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1299">
+                 <property name="text">
+                  <string>Spindles</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_1303">
+                 <property name="text">
+                  <string>Default 4</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QSpinBox" name="num_spindles_sb">
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>8</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_1305">
+                 <property name="text">
+                  <string>Default 9</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_1306">
+                 <property name="text">
+                  <string>Default 0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_1304">
+                 <property name="text">
+                  <string>Default 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_107">
+                 <property name="text">
+                  <string>Digital I/O</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_1302">
+                 <property name="text">
+                  <string>Default 4</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QSpinBox" name="num_aio_sb">
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>64</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QSpinBox" name="num_joint_sb">
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>16</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_204">
+                 <property name="text">
+                  <string>Analog I/O</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QSpinBox" name="num_extra_joints_sb">
+                 <property name="maximum">
+                  <number>16</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QLabel" name="label_1301">
+                 <property name="text">
+                  <string>Leave quantity at 0 for defaults</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="4" rowspan="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_104">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="title">
+               <string>G code Extensions</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_210">
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1309">
+                 <property name="text">
+                  <string>File Extension 0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1311">
+                 <property name="text">
+                  <string>File Extension 2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1387">
+                 <property name="text">
+                  <string>File Extension 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="filter_ext_le_0"/>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1392">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>File extensions to add
+to File Open in Axis</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="filter_ext_le_1"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="filter_ext_le_2"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_4">
+              <property name="title">
+               <string>HAL Files</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_39">
+               <item>
+                <widget class="QCheckBox" name="custom_hal_cb">
+                 <property name="statusTip">
+                  <string>Create the custom.hal file\nif it does not exist</string>
+                 </property>
+                 <property name="text">
+                  <string>Custom HAL</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="postgui_hal_cb">
+                 <property name="statusTip">
+                  <string>Create the postgui.hal file\nif it does not exist</string>
+                 </property>
+                 <property name="text">
+                  <string>Post GUI HAL</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="shutdown_hal_cb">
+                 <property name="statusTip">
+                  <string>Create the shutdown.hal file\nif it does not exist</string>
+                 </property>
+                 <property name="text">
+                  <string>Shutdown HAL</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
@@ -1753,7 +2402,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_3">
           <property name="currentIndex">
-           <number>8</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -2309,7 +2958,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -12417,7 +13066,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_4">
           <property name="currentIndex">
-           <number>7</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
@@ -22844,7 +23493,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_5">
           <property name="currentIndex">
-           <number>7</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -43333,728 +43982,6 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_9">
-       <attribute name="title">
-        <string>Options</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_35">
-        <item>
-         <widget class="QTabWidget" name="tabWidget_27">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tab_155">
-           <attribute name="title">
-            <string>Display</string>
-           </attribute>
-           <widget class="QGroupBox" name="groupBox_101">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>9</y>
-              <width>172</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Manual Tool Change</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_204">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="manual_tool_change_cb">
-               <property name="text">
-                <string>On Screen Prompt</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_136">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>260</y>
-              <width>326</width>
-              <height>141</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Splash Screen</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_308">
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="splash_screen_sb"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_934">
-               <property name="text">
-                <string>Display Seconds</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_935">
-               <property name="text">
-                <string>Intro Graphic</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="intro_graphic_le">
-               <property name="text">
-                <string>emc2.gif</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QLabel" name="label_936">
-               <property name="text">
-                <string>0 for no Intro Graphic</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_137">
-            <property name="geometry">
-             <rect>
-              <x>250</x>
-              <y>10</y>
-              <width>201</width>
-              <height>94</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>VCP Panels</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_309">
-             <property name="topMargin">
-              <number>15</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="pyvcp_cb">
-               <property name="text">
-                <string>PyVCP Panel</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_106">
-            <property name="geometry">
-             <rect>
-              <x>490</x>
-              <y>230</y>
-              <width>241</width>
-              <height>161</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Nagging Popups</string>
-            </property>
-            <widget class="QCheckBox" name="no_check_firmware_cb">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>30</y>
-               <width>221</width>
-               <height>25</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Check for Firmware</string>
-             </property>
-            </widget>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_147">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>120</y>
-              <width>351</width>
-              <height>121</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Jog Increments</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_327">
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="jog_increments"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_755">
-               <property name="text">
-                <string>Comma seperated list optionally followed
-by a unit (cm, mm, um, inch, in or mil)</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_156">
-           <attribute name="title">
-            <string>HAL</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_38">
-            <item>
-             <widget class="QTabWidget" name="hal_tw">
-              <property name="currentIndex">
-               <number>0</number>
-              </property>
-              <widget class="QWidget" name="tab_85">
-               <attribute name="title">
-                <string>Options</string>
-               </attribute>
-              </widget>
-              <widget class="QWidget" name="tab_23">
-               <attribute name="title">
-                <string>Custom</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_31">
-                <item>
-                 <widget class="QPlainTextEdit" name="custom_hal_pte">
-                  <property name="font">
-                   <font>
-                    <family>FreeMono</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_24">
-               <attribute name="title">
-                <string>Post GUI</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_32">
-                <item>
-                 <widget class="QPlainTextEdit" name="postgui_hal_pte">
-                  <property name="font">
-                   <font>
-                    <family>FreeMono</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_25">
-               <attribute name="title">
-                <string>Shutdown</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_33">
-                <item>
-                 <widget class="QPlainTextEdit" name="shutdown_hal_pte">
-                  <property name="font">
-                   <font>
-                    <family>FreeMono</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_157">
-           <attribute name="title">
-            <string>Motion</string>
-           </attribute>
-           <widget class="QGroupBox" name="groupBox_100">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>9</y>
-              <width>230</width>
-              <height>235</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Motion Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_203">
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_211">
-               <property name="text">
-                <string>Extra Joints</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_1300">
-               <property name="text">
-                <string>Joints</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QSpinBox" name="num_dio_sb">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>64</number>
-               </property>
-               <property name="value">
-                <number>0</number>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1299">
-               <property name="text">
-                <string>Spindles</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="label_1303">
-               <property name="text">
-                <string>Default 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QSpinBox" name="num_spindles_sb">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>8</number>
-               </property>
-               <property name="value">
-                <number>0</number>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="label_1305">
-               <property name="text">
-                <string>Default 9</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLabel" name="label_1306">
-               <property name="text">
-                <string>Default 0</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="label_1304">
-               <property name="text">
-                <string>Default 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_107">
-               <property name="text">
-                <string>Digital I/O</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="label_1302">
-               <property name="text">
-                <string>Default 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QSpinBox" name="num_aio_sb">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>64</number>
-               </property>
-               <property name="value">
-                <number>0</number>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="QSpinBox" name="num_joint_sb">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>16</number>
-               </property>
-               <property name="value">
-                <number>0</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_204">
-               <property name="text">
-                <string>Analog I/O</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="2">
-              <widget class="QSpinBox" name="num_extra_joints_sb">
-               <property name="maximum">
-                <number>16</number>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0" colspan="3">
-              <widget class="QLabel" name="label_1301">
-               <property name="text">
-                <string>Leave quantity at 0 for defaults</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_158">
-           <attribute name="title">
-            <string>G code</string>
-           </attribute>
-           <widget class="QGroupBox" name="groupBox_104">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>30</y>
-              <width>201</width>
-              <height>181</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>G code Extensions</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_210">
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1309">
-               <property name="text">
-                <string>File Extension 0</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_1311">
-               <property name="text">
-                <string>File Extension 2</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1387">
-               <property name="text">
-                <string>File Extension 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="filter_ext_le_0"/>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="label_1392">
-               <property name="frameShape">
-                <enum>QFrame::Box</enum>
-               </property>
-               <property name="text">
-                <string>File extensions to add
-to File Open in Axis</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="filter_ext_le_1"/>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="filter_ext_le_2"/>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_138">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>230</y>
-              <width>201</width>
-              <height>131</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Subroutines</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_310">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="subroutine_cb">
-               <property name="text">
-                <string>Default Subroutine Dir</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="custom_sub_dir_pb">
-               <property name="text">
-                <string>Custom Subroutine Dir</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="subroutinePath_lb">
-               <property name="frameShape">
-                <enum>QFrame::Box</enum>
-               </property>
-               <property name="text">
-                <string>WIP</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_159">
-           <attribute name="title">
-            <string>MDI</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <widget class="QGroupBox" name="mdiCommandsGB">
-              <property name="title">
-               <string>MDI Commands</string>
-              </property>
-              <property name="checkable">
-               <bool>false</bool>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_312">
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="label_1391">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string>HALUI MDI Commands must be one per line</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QPushButton" name="add_mdi_command_pb">
-                 <property name="text">
-                  <string>Add Another MDI Command</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QScrollArea" name="scrollArea">
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>706</width>
-                    <height>290</height>
-                   </rect>
-                  </property>
-                  <layout class="QGridLayout" name="mdiCommandsListGL">
-                   <item row="0" column="0" alignment="Qt::AlignTop">
-                    <widget class="QWidget" name="mdi_container" native="true">
-                     <layout class="QGridLayout" name="mdi_grid_layout">
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label_27">
-                        <property name="text">
-                         <string>MDI Command</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="1">
-                       <widget class="QLineEdit" name="mdi_le_0"/>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_160">
-           <attribute name="title">
-            <string>Thread</string>
-           </attribute>
-           <widget class="QGroupBox" name="groupBox_99">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>10</y>
-              <width>241</width>
-              <height>121</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Thread Period</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_202">
-             <item row="0" column="0">
-              <widget class="QSpinBox" name="servo_period_sb">
-               <property name="suffix">
-                <string>us</string>
-               </property>
-               <property name="minimum">
-                <number>10000</number>
-               </property>
-               <property name="maximum">
-                <number>2500000</number>
-               </property>
-               <property name="singleStep">
-                <number>10000</number>
-               </property>
-               <property name="value">
-                <number>1000000</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_359">
-               <property name="text">
-                <string>If you change the Thread Period
-reload all default PID values</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_98">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>150</y>
-              <width>231</width>
-              <height>70</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Debug Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_201">
-             <item row="0" column="0">
-              <widget class="QComboBox" name="debug_cb"/>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_161">
-           <attribute name="title">
-            <string>Startup</string>
-           </attribute>
-           <widget class="QGroupBox" name="groupBox_87">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>20</y>
-              <width>201</width>
-              <height>101</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Startup</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_196">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="new_user_cb">
-               <property name="text">
-                <string>Display New User Info</string>
-               </property>
-               <property name="Section" stdset="0">
-                <string>NAGS</string>
-               </property>
-               <property name="Option" stdset="0">
-                <string>NEWUSER</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_187">
-           <attribute name="title">
-            <string>Read Me</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_53">
-            <item>
-             <widget class="QGroupBox" name="groupBox_221">
-              <property name="minimumSize">
-               <size>
-                <width>600</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="title">
-               <string>ReadMe File</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_436">
-               <item row="1" column="0" colspan="2">
-                <widget class="QPlainTextEdit" name="readme_pte">
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="label_1482">
-                 <property name="text">
-                  <string>Text entered here will be put in the ReadMe file, if blank none will be created</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_14">
-           <attribute name="title">
-            <string>Tools</string>
-           </attribute>
-           <widget class="QTableView" name="tool_tbl">
-            <property name="geometry">
-             <rect>
-              <x>50</x>
-              <y>60</y>
-              <width>256</width>
-              <height>192</height>
-             </rect>
-            </property>
-           </widget>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
         <string>PLC</string>
@@ -45333,6 +45260,7 @@ auto enp2s0
      <string>Tools</string>
     </property>
     <addaction name="actionCheck"/>
+    <addaction name="actionBackup_Config"/>
     <addaction name="actionBuild"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -45360,6 +45288,7 @@ auto enp2s0
     <bool>false</bool>
    </attribute>
    <addaction name="actionOpen"/>
+   <addaction name="actionBackup_Config"/>
    <addaction name="actionCheck"/>
    <addaction name="actionBuild"/>
    <addaction name="actionDocuments"/>
@@ -45599,6 +45528,11 @@ auto enp2s0
     <string>7i89</string>
    </property>
   </action>
+  <action name="actionBackup_Config">
+   <property name="text">
+    <string>Backup Config</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>main_tw</tabstop>
@@ -45607,8 +45541,8 @@ auto enp2s0
   <tabstop>backup_cb</tabstop>
   <tabstop>board_cb</tabstop>
   <tabstop>address_cb</tabstop>
-  <tabstop>daughter_1_cb</tabstop>
-  <tabstop>daughter_2_cb</tabstop>
+  <tabstop>daughter_cb_1</tabstop>
+  <tabstop>daughter_cb_2</tabstop>
   <tabstop>default_imperial_pb</tabstop>
   <tabstop>default_metric_pb</tabstop>
   <tabstop>set_7i96s_x_pb</tabstop>
@@ -45640,7 +45574,7 @@ auto enp2s0
   <tabstop>linear_units_cb</tabstop>
   <tabstop>position_offset_cb</tabstop>
   <tabstop>position_feedback_cb</tabstop>
-  <tabstop>max_feed_override_sb</tabstop>
+  <tabstop>max_feed_override_dsb</tabstop>
   <tabstop>min_lin_jog_vel_dsb</tabstop>
   <tabstop>def_lin_jog_vel_dsb</tabstop>
   <tabstop>max_lin_jog_vel_dsb</tabstop>
@@ -46057,29 +45991,6 @@ auto enp2s0
   <tabstop>spindle_max_rpm_rev_sb</tabstop>
   <tabstop>spindle_max_accel_sb</tabstop>
   <tabstop>ss_card_cb</tabstop>
-  <tabstop>tabWidget_27</tabstop>
-  <tabstop>manual_tool_change_cb</tabstop>
-  <tabstop>pyvcp_cb</tabstop>
-  <tabstop>jog_increments</tabstop>
-  <tabstop>intro_graphic_le</tabstop>
-  <tabstop>splash_screen_sb</tabstop>
-  <tabstop>no_check_firmware_cb</tabstop>
-  <tabstop>num_dio_sb</tabstop>
-  <tabstop>num_aio_sb</tabstop>
-  <tabstop>num_spindles_sb</tabstop>
-  <tabstop>num_joint_sb</tabstop>
-  <tabstop>num_extra_joints_sb</tabstop>
-  <tabstop>filter_ext_le_0</tabstop>
-  <tabstop>filter_ext_le_1</tabstop>
-  <tabstop>filter_ext_le_2</tabstop>
-  <tabstop>subroutine_cb</tabstop>
-  <tabstop>custom_sub_dir_pb</tabstop>
-  <tabstop>scrollArea</tabstop>
-  <tabstop>add_mdi_command_pb</tabstop>
-  <tabstop>servo_period_sb</tabstop>
-  <tabstop>debug_cb</tabstop>
-  <tabstop>new_user_cb</tabstop>
-  <tabstop>readme_pte</tabstop>
   <tabstop>ladder_gb</tabstop>
   <tabstop>ladder_rungs_sb</tabstop>
   <tabstop>ladder_bits_sb</tabstop>
@@ -47187,7 +47098,6 @@ auto enp2s0
   <tabstop>c1_ff2_1</tabstop>
   <tabstop>c1_home_latch_vel_1</tabstop>
   <tabstop>c1_home_1</tabstop>
-  <tabstop>tool_tbl</tabstop>
   <tabstop>c1_home_final_vel_1</tabstop>
   <tabstop>c1_home_search_vel_1</tabstop>
   <tabstop>c1_home_sequence_1</tabstop>

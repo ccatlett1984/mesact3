@@ -2,8 +2,10 @@ from functools import partial
 
 from PyQt6.QtGui import QAction, QIcon
 
+from libmesact import axes
 from libmesact import openini
 from libmesact import download
+from libmesact import buildconfig
 from libmesact import check
 from libmesact import utilities
 from libmesact import boards
@@ -65,6 +67,8 @@ def connect(parent):
 
 	# Tools Menu
 	parent.actionCheck.triggered.connect(partial(check.check_config, parent))
+	parent.actionBackup_Config.triggered.connect(partial(utilities.backup_files, parent))
+	parent.actionBuild.triggered.connect(partial(buildconfig.build, parent))
 
 	# Help Menu
 	parent.actionDocuments.triggered.connect(partial(utilities.open_manual, parent))
@@ -72,18 +76,33 @@ def connect(parent):
 	# Machine Tab
 	parent.machine_name_le.textChanged[str].connect(partial(utilities.machine_name_changed, parent))
 	parent.board_cb.currentIndexChanged.connect(partial(boards.changed, parent))
-	parent.daughter_1_cb.currentIndexChanged.connect(partial(daughters.changed, parent, 4))
-	parent.daughter_2_cb.currentIndexChanged.connect(partial(daughters.changed, parent, 5))
+	parent.daughter_cb_1.currentIndexChanged.connect(partial(daughters.changed, parent, 4))
+	parent.daughter_cb_2.currentIndexChanged.connect(partial(daughters.changed, parent, 5))
 
 	# Firmware Tab
 	parent.firmware_cb.currentIndexChanged.connect(partial(flash.firmware_changed, parent))
+
+	# Settings Tab
+	parent.halui_cb.toggled.connect(partial(utilities.toggle_mdi, parent))
+	parent.add_mdi_command_pb.clicked.connect(partial(utilities.add_mdi_row, parent))
+	parent.mdi_le_0.returnPressed.connect(partial(utilities.add_mdi_row, parent))
+
+	# Drive Tabs
+	for i in range(6):
+		for j in range(3):
+			getattr(parent, f'c{j}_axis_{i}').currentIndexChanged.connect(partial(axes.axis_changed, parent))
+			getattr(parent, f'c{j}_scale_{i}').textChanged.connect(partial(axes.update_axis_info, parent))
+			getattr(parent, f'c{j}_max_vel_{i}').textChanged.connect(partial(axes.update_axis_info, parent))
+			getattr(parent, f'c{j}_max_accel_{i}').textChanged.connect(partial(axes.update_axis_info, parent))
+			getattr(parent, f'c{j}_pid_default_{i}').clicked.connect(partial(axes.set_default_pid, parent))
+			getattr(parent, f'c{j}_ferror_default_{i}').clicked.connect(partial(axes.set_default_ferror, parent))
+			getattr(parent, f'c{j}_analog_default_{i}').clicked.connect(partial(axes.set_default_analog, parent))
+			getattr(parent, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.drive_changed, parent))
 
 	# Smart Serial Tab
 	parent.ss_card_cb.currentIndexChanged.connect(partial(sscards.card_changed, parent))
 	parent.ss7i73_keypad_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))
 	parent.ss7i73lcd_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))
 
-	# Options Tab
-	parent.add_mdi_command_pb.clicked.connect(partial(utilities.add_mdi_row, parent))
 
 

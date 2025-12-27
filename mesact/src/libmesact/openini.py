@@ -48,8 +48,8 @@ def load_ini(parent, ini_file=None):
 		mesa = {}
 		mesa['BOARD_NAME'] = 'board_cb'
 		mesa['FIRMWARE'] = 'firmware_cb'
-		mesa['CARD_1'] = 'daughter_1_cb'
-		mesa['CARD_2'] = 'daughter_2_cb'
+		mesa['CARD_1'] = 'daughter_cb_1'
+		mesa['CARD_2'] = 'daughter_cb_2'
 
 		start = sections['[MESA]'][0]
 		end = sections['[MESA]'][1]

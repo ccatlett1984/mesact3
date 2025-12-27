@@ -5,10 +5,10 @@ def changed(parent, tab, index):
 	#print(f'board {board}')
 	index = parent.sender().currentIndex()
 	#print(f'index {index}')
-	if parent.sender().objectName() == 'daughter_1_cb':
+	if parent.sender().objectName() == 'daughter_cb_1':
 		tab = 4
 		io = 1
-	elif parent.sender().objectName() == 'daughter_2_cb':
+	elif parent.sender().objectName() == 'daughter_cb_2':
 		tab = 5
 		io = 2
 
@@ -36,12 +36,6 @@ def changed(parent, tab, index):
 		case '7i85s': # 7i85S
 			print('7i85S selected')
 			set_drives(parent, 5, tab)
-
-	'''
-	else:
-		#print(parent.sender().currentText())
-		set_drives(parent, 0)
-	'''
 
 def set_drives(parent, drives, tab):
 	parent.main_tw.setTabVisible(tab, True)

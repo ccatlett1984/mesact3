@@ -17,6 +17,9 @@ from libmesact import connections
 # remove after testing FIXME
 from libmesact import tests
 
+VERSION = '3.0.0'
+BUILD_DATE = '12/25/2025'
+
 class mesact(QMainWindow):
 	def __init__(self):
 		super().__init__()
@@ -37,6 +40,7 @@ class mesact(QMainWindow):
 		with open(stylesheet,'r') as fh:
 			self.setStyleSheet(fh.read())
 
+		self.version = VERSION
 		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
 		self.settings = QSettings('mesact', 'mesact')
 		self.progress_bar = QProgressBar()
@@ -50,8 +54,10 @@ class mesact(QMainWindow):
 		combos.build_combos(self)
 		menus.build_menus(self)
 		connections.connect(self)
-		startup.hide(self)
-		startup.load(self)
+		startup.hide_tabs(self)
+		startup.disable_controls(self)
+		startup.load_ini(self)
+		startup.test(self)
 
 		# remove after testing FIXME
 		tests.connect(self)

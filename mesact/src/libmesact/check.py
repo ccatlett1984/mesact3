@@ -1,7 +1,6 @@
 
 
 def check_config(parent):
-	print('here')
 
 	config_errors = []
 	tab_error = False
@@ -9,13 +8,21 @@ def check_config(parent):
 
 	# check the Machine Tab for errors
 	if not parent.machine_name_le.text():
-		tabError = True
+		tab_error = True
 		config_errors.append('\tA configuration name must be entered')
 	if not parent.board_cb.currentData():
-		tabError = True
+		tab_error = True
 		config_errors.append('\tA Board must be selected')
+	if parent.board_type == 'eth' and not parent.address_cb.currentData():
+		tab_error = True
+		config_errors.append('\tAn Ethernet Address must be selected')
+	elif parent.board_type == 'spi' and not parent.address_cb.currentData():
+		tab_error = True
+		config_errors.append('\tA SPI Address must be selected')
 
-	if tabError:
+
+
+	if tab_error:
 		config_errors.insert(next_header, 'Machine Tab:')
 		next_header = len(config_errors)
 		tab_error = False
@@ -23,7 +30,7 @@ def check_config(parent):
 
 
 	parent.info_pte.clear()
-	parent.main_tw.setCurrentIndex(11)
+	parent.main_tw.setCurrentIndex(10)
 
 	if config_errors:
 		parent.info_pte.setPlainText('\n'.join(config_errors))

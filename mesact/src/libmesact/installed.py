@@ -37,7 +37,7 @@ def versions(parent):
 		parent.mesaflash_version = ()
 
 	# get emc version if installed
-	parent.emcVersion_lb.clear()
+	parent.emc_version_lb.clear()
 	parent.emc_version = (0, 0, 0)
 	try: # don't crash if your not running debian
 		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], text=True)
@@ -58,13 +58,16 @@ def versions(parent):
 					version = version.split('~')[0]
 				# make damn sure version is valid
 				if all(c in "0123456789." for c in version) and version.count('.') > 1:
-					parent.emcVersion_lb.setText(version)
-					parent.emc_version = tuple(int(i) for i in version.split('.'))
+					parent.emc_version = version
+					parent.emc_version_lb.setText(parent.emc_version)
+					# parent.emc_version_tuple is to check version levels
+					# if parent.emc_version_tuple >= (2, 9, 1):
+					parent.emc_version_tuple = tuple(int(i) for i in version.split('.'))
 				else:
-					parent.emcVersion_lb.setText('Version Error')
+					parent.emc_version_lb.setText('Version Error')
 				break
 	else:
-		parent.emcVersion_lb.setText('Not Installed')
+		parent.emc_version_lb.setText('Not Installed')
 
 	try:
 		os_name = subprocess.check_output(['lsb_release', '-is'], encoding='UTF-8').split()

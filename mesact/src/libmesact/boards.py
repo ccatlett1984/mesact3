@@ -21,6 +21,7 @@ def changed(parent, index):
 			daughter_boards(parent, None , None)
 			parent.main_tw.setTabVisible(3, False)
 			parent.board_name = None
+			parent.board_type = None
 			parent.board_hal_name = None
 			parent.mesaflash_name = None
 
@@ -29,6 +30,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P2' , 'P3')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'pci'
 			parent.mesaflash_name = '5i25'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Connector 5v Power\n'
@@ -42,6 +44,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P2' , 'P3')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'pci'
 			parent.mesaflash_name = '5i25t'
 			parent.mesaflash_version = '3.4.8'
 			info = ('Connector 5v Power\n'
@@ -59,6 +62,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P2' , 'P3')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'pci'
 			parent.mesaflash_name = '5i25'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Connector 5v Power\n'
@@ -73,6 +77,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 6)
 			set_io(parent, 24, False, False, 8, False, False)
+			parent.board_type = 'spi'
 			parent.mesaflash_name = '7c80'
 			parent.mesaflash_version = '3.4.2'
 			info = ('7c80 uses SPI for communications.\n'
@@ -86,6 +91,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P2')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'spi'
 			parent.mesaflash_name = '7c81'
 			parent.mesaflash_version = '3.4.2'
 			info = ('7c81 uses SPI for communications.\n'
@@ -100,6 +106,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P2')
 			set_drives(parent, 5)
 			set_io(parent, 32, True, False, 16, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i76e'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Connector 5v Power\n'
@@ -115,6 +122,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P3')
 			set_drives(parent, 5)
 			set_io(parent, 32, True, False, 16, True, True)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i76eu'
 			parent.mesaflash_version = '3.5.2'
 			info = ('Connector 5v Power\n'
@@ -133,6 +141,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P2')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i92'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Connector 5v Power\n'
@@ -150,6 +159,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P2')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i92t'
 			parent.mesaflash_version = '3.4.5'
 			info = ('Connector 5v Power\n'
@@ -169,6 +179,7 @@ def changed(parent, index):
 			# inputs invert and slow, output invert
 			set_drives(parent, 6)
 			set_io(parent, 24, True, True, 6, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i95'
 			parent.mesaflash_version = '3.4.2'
 			info = ('IP Address Jumpers\nW16 Down W17 Up for 10.10.10.10\n'
@@ -181,6 +192,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 6)
 			set_io(parent, 24, False, False, 6, False, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i95t'
 			parent.mesaflash_version = '3.4.7'
 			info = ('The 7i95T requires LinuxCNC version 2.10 or newer to run\n'
@@ -196,6 +208,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 5)
 			set_io(parent, 11, True, False, 6, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i96'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Connector 5v Power\n'
@@ -211,6 +224,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 5)
 			set_io(parent, 11, True, True, 6, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i96s'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Expansion Connector 5v Power W6 Up for P1\n'
@@ -225,6 +239,7 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 6)
 			set_io(parent, 16, True, True, 6, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i97'
 			parent.mesaflash_version = '3.4.2'
 			info = ('Breakout 5v Power W23 Up for P1\n'
@@ -240,7 +255,9 @@ def changed(parent, index):
 			daughter_boards(parent, 'P2' , None)
 			set_drives(parent, 6)
 			set_io(parent, 16, True, True, 6, True, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i97t'
+			# FIXME where is mesaflash version
 			info = ('The 7i97T requires LinuxCNC version 2.10 or newer to run\n'
 			'\nTo Flash the 7i97T Mesaflash version 3.5.3\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW11 Down W12 Up for 10.10.10.10\n'
@@ -258,7 +275,9 @@ def changed(parent, index):
 			daughter_boards(parent, 'P1' , 'P2')
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
+			parent.board_type = 'eth'
 			parent.mesaflash_name = '7i98'
+			# FIXME where is mesaflash version
 			info = ('IP Address W8 Down W9 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i98_g540x3d.bit\n')
 			parent.board_info_pte.setPlainText(info)
@@ -306,26 +325,26 @@ def daughter_boards(parent, port_1 , port_2):
 	['7i85S', '7i85s']
 	]
 
-	parent.daughter_1_cb.blockSignals(True)
-	parent.daughter_2_cb.blockSignals(True)
+	parent.daughter_cb_1.blockSignals(True)
+	parent.daughter_cb_2.blockSignals(True)
 
-	parent.daughter_1_cb.clear()
-	parent.daughter_1_lb.clear()
-	parent.daughter_2_cb.clear()
-	parent.daughter_2_lb.clear()
+	parent.daughter_cb_1.clear()
+	parent.daughter_lb_1.clear()
+	parent.daughter_cb_2.clear()
+	parent.daughter_lb_2.clear()
 
 	if port_1:
-		parent.daughter_1_lb.setText(port_1)
+		parent.daughter_lb_1.setText(port_1)
 		for item in boards:
-			parent.daughter_1_cb.addItem(item[0], item[1])
+			parent.daughter_cb_1.addItem(item[0], item[1])
 
 	if port_2:
-		parent.daughter_2_lb.setText(port_2)
+		parent.daughter_lb_2.setText(port_2)
 		for item in boards:
-			parent.daughter_2_cb.addItem(item[0], item[1])
+			parent.daughter_cb_2.addItem(item[0], item[1])
 
-	parent.daughter_1_cb.blockSignals(False)
-	parent.daughter_2_cb.blockSignals(False)
+	parent.daughter_cb_1.blockSignals(False)
+	parent.daughter_cb_2.blockSignals(False)
 
 def set_drives(parent, drives):
 	for i in range(1, 7):
