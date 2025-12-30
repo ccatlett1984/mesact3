@@ -143,18 +143,151 @@ def build(parent):
 	# build the [APPLICATIONS] Section
 	# build the [TRAJ] Section
 	# required COORDINATES LINEAR_UNITS ANGULAR_UNITS MAX_LINEAR_VELOCITY
+	contents.append('\n[TRAJ]\n')
+	contents.append(f'COORDINATES = {parent.coordinates_lb.text()}\n')
+	contents.append(f'LINEAR_UNITS = {parent.linear_units_cb.currentData()}\n')
+	contents.append('ANGULAR_UNITS = degree\n')
+	contents.append(f'MAX_LINEAR_VELOCITY = {parent.traj_max_lin_vel_dsb.value():.1f}\n')
+	if parent.no_force_homing_cb.isChecked():
+		contents.append(f'NO_FORCE_HOMING = 1\n')
 
 	# build the [KINS] Section
-	# build the [AXIS_<letter>] Section
-	# build the [JOINT_<num>] Sections
+	contents.append('\n[KINS]\n')
+	if len(set(parent.coordinates_lb.text())) == len(parent.coordinates_lb.text()): # 1 joint for each axis
+		contents.append(f'KINEMATICS = trivkins coordinates={parent.coordinates_lb.text()}\n')
+	else: # more than one joint per axis
+		contents.append(f'KINEMATICS = trivkins coordinates={parent.coordinates_lb.text()} kinstype=BOTH\n')
+	contents.append(f'JOINTS = {len(parent.coordinates_lb.text())}\n')
+
+	axes = []
+	joint = 0
+	for i in range(3):
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+				if axis and axis not in axes: # new axis only add one of each axis
+					axes.append(axis)
+					# build the [AXIS_<letter>] Section
+					contents.append(f'\n[AXIS_{axis}]\n')
+					contents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
+					contents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
+					contents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
+					contents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
+
+				# build the [JOINT_<num>] Section
+				contents.append(f'\n[JOINT_{joint}]\n')
+				contents.append(f'BOARD = {i}\n')
+				contents.append(f'DRIVE = {j}\n')
+				contents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentData()}\n')
+				contents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
+				contents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
+				contents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
+				contents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
+				contents.append(f'TYPE = {getattr(parent, f"c{i}_axis_type_{j}").text()}\n')
+
+				# PID
+				contents.append(f'\n# PID Settings\n')
+				contents.append(f'P = {getattr(parent, f"c{i}_p_{j}").text()}\n')
+				contents.append(f'I = {getattr(parent, f"c{i}_i_{j}").text()}\n')
+				contents.append(f'D = {getattr(parent, f"c{i}_d_{j}").text()}\n')
+				contents.append(f'FF0 = {getattr(parent, f"c{i}_ff0_{j}").text()}\n')
+				contents.append(f'FF1 = {getattr(parent, f"c{i}_ff1_{j}").text()}\n')
+				contents.append(f'FF2 = {getattr(parent, f"c{i}_ff2_{j}").text()}\n')
+				contents.append(f'DEADBAND = {getattr(parent, f"c{i}_deadband_{j}").text()}\n')
+				contents.append(f'BIAS = {getattr(parent, f"c{i}_bias_{j}").text()}\n')
+				contents.append(f'MAX_OUTPUT = {getattr(parent, f"c{i}_max_output_{j}").text()}\n')
+				contents.append(f'MAX_ERROR = {getattr(parent, f"c{i}_max_error_{j}").text()}\n')
+
+				# Following Error 
+				contents.append(f'\n# Following Error Settings\n')
+				contents.append(f'FERROR = {getattr(parent, f"c{i}_max_ferror_{j}").text()}\n')
+				contents.append(f'MIN_FERROR = {getattr(parent, f"c{i}_min_ferror_{j}").text()}\n')
+
+				# Homing
+				home_le = [
+				['_home_', 'HOME'],
+				['_home_offset_', 'HOME_OFFSET'],
+				['_home_search_vel_', 'HOME_SEARCH_VEL'],
+				['_home_latch_vel_', 'HOME_LATCH_VEL'],
+				['_home_final_vel_', 'HOME_FINAL_VEL'],
+				['_home_sequence_', 'HOME_SEQUENCE'],
+				]
+
+				for item in home_le:
+					if getattr(parent, f'c{i}{item[0]}{j}').text():
+						contents.append('\n# Homing Settings\n')
+						break
+
+				for item in home_le:
+					text = getattr(parent, f'c{i}{item[0]}{j}').text()
+					if text:
+						contents.append(f'{item[1]} = {text}\n')
+
+				home_cb = [
+				['_home_ignore_limits_', 'HOME_IGNORE_LIMITS'],
+				['_home_use_index_', 'HOME_USE_INDEX'],
+				['_home_switch_shared_', 'HOME_IS_SHARED']
+				]
+
+				for item in home_cb:
+					if getattr(parent, f'c{i}{item[0]}{j}').isChecked():
+						contents.append(f'{item[1]} = True\n')
+				joint += 1
+
 	# build the [SPINDLE_<num>] Section(s)
+	if parent.spindle_rpm_le.text():
+		contents.append('\n[SPINDLE_0]\n')
+		contents.append(f'P = {parent.p_s.cleanText()}\n')
+		contents.append(f'I = {parent.i_s.cleanText()}\n')
+		contents.append(f'D = {parent.d_s.cleanText()}\n')
+		contents.append(f'FF0 = {parent.ff0_s.cleanText()}\n')
+		contents.append(f'FF1 = {parent.ff1_s.cleanText()}\n')
+		contents.append(f'FF2 = {parent.ff2_s.cleanText()}\n')
+		contents.append(f'BIAS = {parent.bias_s.cleanText()}\n')
+		contents.append(f'DEADBAND = {parent.deadband_s.cleanText()}\n')
+		contents.append(f'OUTPUT_SCALE = {int(parent.spindle_rpm_le.text())}\n')
+		contents.append(f'OUTPUT_MIN_LIMIT = -{int(parent.spindle_rpm_le.text())}\n')
+		contents.append(f'OUTPUT_MAX_LIMIT = {int(parent.spindle_rpm_le.text())}\n')
+
+
+
 	# build the [EMCIO] Section
+	contents.append('\n[EMCIO]\n')
+	contents.append('EMCIO = iov2\n')
+	contents.append('CYCLE_TIME = 0.100\n')
+	contents.append('TOOL_TABLE = tool.tbl\n')
 
+	# build the [INPUTS] section
+	contents.append('\n[INPUTS]\n')
+	contents.append('# DO NOT change the inputs they are used by the configuration tool\n')
+	for i in range(3):
+		if parent.main_tw.isTabVisible(i + 3): # if the board tab is visible
+			if getattr(parent, f'c{i}_joint_tw').isTabVisible(1):
+				for j in range(32):
+					if getattr(parent, f"c{i}_input_{j}").text() != 'Select': # only add inputs that are used
+						contents.append(f'INPUT_{i}_{j} = {getattr(parent, f"c{i}_input_{j}").text()}\n')
+						contents.append(f'INPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_input_invert_{j}").isChecked()}\n')
+						contents.append(f'INPUT_SLOW_{i}_{j} = {getattr(parent, f"c{i}_input_debounce_{j}").isChecked()}\n')
 
-	'''
-	contents.
-	contents.
-	'''
+	# build the [OUTPUTS] section 
+	contents.append('\n[OUTPUTS]\n')
+	contents.append('# DO NOT change the outputs they are used by the configuration tool\n')
+
+	for i in range(3):
+		for j in range(16):
+			if getattr(parent, f"c{i}_output_{j}").text() != 'Select': # only add outputs that are used
+				contents.append(f'OUTPUT_{i}_{j} = {getattr(parent, f"c{i}_output_{j}").text()}\n')
+				contents.append(f'OUTPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_output_invert_{j}").isChecked()}\n')
+
+	# boards with sink, source outputs
+	sink_source_boards = ['7i76EU']
+	if parent.board_cb.currentText() in sink_source_boards:
+		for i in range(16):
+			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
+			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
+		contents.append(f'OUTPUT_SINK = {sink}\n')
+		contents.append(f'OUTPUT_SOURCE = {source}\n')
+
 
 	try:
 		with open(parent.ini_path, 'w') as f:
