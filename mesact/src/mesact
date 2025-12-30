@@ -57,7 +57,7 @@ class mesact(QMainWindow):
 		startup.hide_tabs(self)
 		startup.disable_controls(self)
 		startup.load_ini(self)
-		startup.test(self)
+		#startup.test(self)
 
 		# remove after testing FIXME
 		tests.connect(self)
