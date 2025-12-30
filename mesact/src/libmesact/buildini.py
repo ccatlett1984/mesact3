@@ -311,8 +311,85 @@ def build(parent):
 		children = parent.ladder_gb.findChildren(QSpinBox)
 		for child in children:
 			if child.value() > 0:
-				print(child.property("item"))
-			contents.append(f'{child.property("item")} = {child.value()}\n')
+				contents.append(f'{child.property("item")} = {child.value()}\n')
+
+	# build the [SSERIAL] section
+	if parent.ss_card_cb.currentData():
+		contents.append('\n[SSERIAL]\n')
+		contents.append('# DO NOT change the sserial they are used by the configuration tool\n')
+		contents.append(f'SS_CARD = {parent.ss_card_cb.currentText()}\n')
+
+	if parent.ss_card_cb.currentText() == '7i64':
+		# 24 ss7i64in_
+		# 24 ss7i64out_
+		for i in range(24):
+			if getattr(parent, f'ss7i64in_{i}').text() != 'Select':
+				contents.append(f'ss7i64in_{i} = {getattr(parent, "ss7i64in_" + str(i)).text()}\n')
+		for i in range(24):
+			if getattr(parent, f'ss7i64out_{i}').text() != 'Select':
+				contents.append(f'ss7i64out_{i} = {getattr(parent, "ss7i64out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i69':
+		# 24 ss7i69in_
+		# 24 ss7i69out_
+		for i in range(24):
+			if getattr(parent, f'ss7i69in_{i}').text() != 'Select':
+				contents.append(f'ss7i69in_{i} = {getattr(parent, "ss7i69in_" + str(i)).text()}\n')
+		for i in range(24):
+			if getattr(parent, f'ss7i69out_{i}').text() != 'Select':
+				contents.append(f'ss7i69out_{i} = {getattr(parent, "ss7i69out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i70':
+		# 48 ss7i70in_
+		for i in range(48):
+			if getattr(parent, f'ss7i70in_{i}').text() != 'Select':
+				contents.append(f'ss7i70in_{i} = {getattr(parent, "ss7i70in_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i71':
+		# 48 ss7i71out_
+		for i in range(48):
+			if getattr(parent, f'ss7i71out_{i}').text() != 'Select':
+				contents.append(f'ss7i71out_{i} = {getattr(parent, "ss7i71out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i72':
+		# 48 ss7i72out_
+		for i in range(48):
+			if getattr(parent, f'ss7i72out_{i}').text() != 'Select':
+				contents.append(f'ss7i72out_{i} = {getattr(parent, "ss7i72out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i73':
+		# 16 ss7i73key_
+		# 12 ss7i73lcd_
+		# 16 ss7i73in_
+		# 2 ss7i73out_
+		for i in range(16):
+			if getattr(parent, f'ss7i73key_{i}').text() != 'Select':
+				contents.append(f'ss7i73key_{i} = {getattr(parent, "ss7i73key_" + str(i)).text()}\n')
+		for i in range(12):
+			if getattr(parent, f'ss7i73lcd_{i}').text() != 'Select':
+				contents.append(f'ss7i73lcd_{i} = {getattr(parent, "ss7i73lcd_" + str(i)).text()}\n')
+		for i in range(16):
+			if getattr(parent, f'ss7i73in_{i}').text() != 'Select':
+				contents.append(f'ss7i73in_{i} = {getattr(parent, "ss7i73in_" + str(i)).text()}\n')
+		for i in range(2):
+			if getattr(parent, f'ss7i73out_{i}').text() != 'Select':
+				contents.append(f'ss7i73out_{i} = {getattr(parent, "ss7i73out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i84':
+		# 32 ss7i84in_
+		# 16 ss7i84out_
+		for i in range(32):
+			if getattr(parent, f'ss7i84in_{i}').text() != 'Select':
+				contents.append(f'ss7i84in_{i} = {getattr(parent, "ss7i84in_" + str(i)).text()}\n')
+		for i in range(16):
+			if getattr(parent, f'ss7i84out_{i}').text() != 'Select':
+				contents.append(f'ss7i84out_{i} = {getattr(parent, "ss7i84out_" + str(i)).text()}\n')
+
+	elif parent.ss_card_cb.currentText() == '7i87':
+		# 8 ss7i87in_
+		for i in range(8):
+			if getattr(parent, f'ss7i87in_{i}').text() != 'Select':
+				contents.append(f'ss7i87in_{i} = {getattr(parent, "ss7i87in_" + str(i)).text()}\n')
 
 
 	try:

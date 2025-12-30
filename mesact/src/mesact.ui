@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1107,7 +1107,7 @@ to the clipboard</string>
         <item row="0" column="0" rowspan="3">
          <widget class="QTabWidget" name="tabWidget_6">
           <property name="currentIndex">
-           <number>3</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_166">
            <attribute name="title">
@@ -34755,7 +34755,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_2">
            <layout class="QVBoxLayout" name="verticalLayout_45">
             <item>
-             <widget class="QTabWidget" name="tabWidget_35">
+             <widget class="QTabWidget" name="ss_7i64_tw">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -35956,7 +35956,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_3">
            <layout class="QVBoxLayout" name="verticalLayout_46">
             <item>
-             <widget class="QTabWidget" name="tabWidget_36">
+             <widget class="QTabWidget" name="ss_7i69_tw">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -37157,7 +37157,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_4">
            <layout class="QVBoxLayout" name="verticalLayout_47">
             <item>
-             <widget class="QTabWidget" name="tabWidget_37">
+             <widget class="QTabWidget" name="ss_7i70_tw">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -38358,9 +38358,9 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_5">
            <layout class="QVBoxLayout" name="verticalLayout_48">
             <item>
-             <widget class="QTabWidget" name="tabWidget_38">
+             <widget class="QTabWidget" name="ss_7i71_tw">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_172">
                <attribute name="title">
@@ -39559,9 +39559,9 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_6">
            <layout class="QVBoxLayout" name="verticalLayout_49">
             <item>
-             <widget class="QTabWidget" name="tabWidget_39">
+             <widget class="QTabWidget" name="ss_7i72_tw">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_174">
                <attribute name="title">
@@ -40760,7 +40760,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_7">
            <layout class="QVBoxLayout" name="verticalLayout_50">
             <item>
-             <widget class="QTabWidget" name="tabWidget_40">
+             <widget class="QTabWidget" name="ss_7i73_tw">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -41878,7 +41878,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           <widget class="QWidget" name="page_8">
            <layout class="QVBoxLayout" name="verticalLayout_52">
             <item>
-             <widget class="QTabWidget" name="tabWidget_41">
+             <widget class="QTabWidget" name="ss_7i84tw">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -43085,211 +43085,6 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
           </widget>
           <widget class="QWidget" name="page_9">
            <layout class="QGridLayout" name="gridLayout_399">
-            <item row="0" column="0">
-             <widget class="QGroupBox" name="groupBox_216">
-              <property name="minimumSize">
-               <size>
-                <width>175</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="title">
-               <string>7i87 Analog Inputs  TB2</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_394">
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_1408">
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_1407">
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="ss7i87in_0">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QPushButton" name="ss7i87in_4">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="1">
-                <widget class="QPushButton" name="ss7i87in_6">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QPushButton" name="ss7i87in_3">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="label_1410">
-                 <property name="text">
-                  <string>7</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="label_1405">
-                 <property name="text">
-                  <string>6</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_1404">
-                 <property name="text">
-                  <string>2</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QPushButton" name="ss7i87in_5">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_1409">
-                 <property name="text">
-                  <string>4</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QPushButton" name="ss7i87in_2">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QPushButton" name="ss7i87in_1">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QPushButton" name="ss7i87in_7">
-                 <property name="minimumSize">
-                  <size>
-                   <width>125</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_1406">
-                 <property name="text">
-                  <string>5</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_1411">
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="0" column="1">
              <spacer name="horizontalSpacer_50">
               <property name="orientation">
@@ -43302,6 +43097,213 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                </size>
               </property>
              </spacer>
+            </item>
+            <item row="0" column="0">
+             <widget class="QTabWidget" name="ss_7i87_tw">
+              <property name="minimumSize">
+               <size>
+                <width>175</width>
+                <height>0</height>
+               </size>
+              </property>
+              <widget class="QWidget" name="tabWidget_216Page1" native="true">
+               <attribute name="title">
+                <string/>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_394">
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_1408">
+                  <property name="text">
+                   <string>3</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_1407">
+                  <property name="minimumSize">
+                   <size>
+                    <width>50</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="ss7i87in_0">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QPushButton" name="ss7i87in_4">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QPushButton" name="ss7i87in_6">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QPushButton" name="ss7i87in_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_1410">
+                  <property name="text">
+                   <string>7</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="label_1405">
+                  <property name="text">
+                   <string>6</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_1404">
+                  <property name="text">
+                   <string>2</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QPushButton" name="ss7i87in_5">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_1409">
+                  <property name="text">
+                   <string>4</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="ss7i87in_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="ss7i87in_1">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1">
+                 <widget class="QPushButton" name="ss7i87in_7">
+                  <property name="minimumSize">
+                   <size>
+                    <width>125</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Select</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="label_1406">
+                  <property name="text">
+                   <string>5</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_1411">
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -46033,7 +46035,7 @@ auto enp2s0
   <tabstop>c1_analog_scale_max_0</tabstop>
   <tabstop>plainTextEdit</tabstop>
   <tabstop>plainTextEdit_2</tabstop>
-  <tabstop>tabWidget_35</tabstop>
+  <tabstop>ss_7i64_tw</tabstop>
   <tabstop>ss7i64in_0</tabstop>
   <tabstop>ss7i64in_1</tabstop>
   <tabstop>ss7i64in_2</tabstop>
@@ -46082,7 +46084,7 @@ auto enp2s0
   <tabstop>ss7i64out_21</tabstop>
   <tabstop>ss7i64out_22</tabstop>
   <tabstop>ss7i64out_23</tabstop>
-  <tabstop>tabWidget_36</tabstop>
+  <tabstop>ss_7i69_tw</tabstop>
   <tabstop>ss7i69in_0</tabstop>
   <tabstop>ss7i69in_1</tabstop>
   <tabstop>ss7i69in_2</tabstop>
@@ -46131,7 +46133,7 @@ auto enp2s0
   <tabstop>ss7i69out_21</tabstop>
   <tabstop>ss7i69out_22</tabstop>
   <tabstop>ss7i69out_23</tabstop>
-  <tabstop>tabWidget_37</tabstop>
+  <tabstop>ss_7i70_tw</tabstop>
   <tabstop>ss7i70in_0</tabstop>
   <tabstop>ss7i70in_1</tabstop>
   <tabstop>ss7i70in_2</tabstop>
@@ -46180,7 +46182,7 @@ auto enp2s0
   <tabstop>ss7i70in_45</tabstop>
   <tabstop>ss7i70in_46</tabstop>
   <tabstop>ss7i70in_47</tabstop>
-  <tabstop>tabWidget_38</tabstop>
+  <tabstop>ss_7i71_tw</tabstop>
   <tabstop>ss7i71out_0</tabstop>
   <tabstop>ss7i71out_1</tabstop>
   <tabstop>ss7i71out_2</tabstop>
@@ -46229,7 +46231,7 @@ auto enp2s0
   <tabstop>ss7i71out_45</tabstop>
   <tabstop>ss7i71out_46</tabstop>
   <tabstop>ss7i71out_47</tabstop>
-  <tabstop>tabWidget_39</tabstop>
+  <tabstop>ss_7i72_tw</tabstop>
   <tabstop>ss7i72out_0</tabstop>
   <tabstop>ss7i72out_1</tabstop>
   <tabstop>ss7i72out_2</tabstop>
@@ -46326,8 +46328,8 @@ auto enp2s0
   <tabstop>ss7i73out_1</tabstop>
   <tabstop>ss7i73_keypad_cb</tabstop>
   <tabstop>ss7i73lcd_cb</tabstop>
-  <tabstop>tabWidget_40</tabstop>
-  <tabstop>tabWidget_41</tabstop>
+  <tabstop>ss_7i73_tw</tabstop>
+  <tabstop>ss_7i84tw</tabstop>
   <tabstop>ss7i84in_0</tabstop>
   <tabstop>ss7i84in_1</tabstop>
   <tabstop>ss7i84in_2</tabstop>
