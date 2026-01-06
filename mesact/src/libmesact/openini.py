@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import QPushButton, QGroupBox
 from libmesact import dialogs
 from libmesact import utilities
 
-def load_ini(parent, ini_file=None):
+def load_ini(parent, ini_file=None): # FIXME not loading daughter board
 	if not ini_file:
 		home_dir = os.path.expanduser("~")
 		config_dir = os.path.join(home_dir, 'linuxcnc/configs')
@@ -48,8 +48,8 @@ def load_ini(parent, ini_file=None):
 		mesa = {}
 		mesa['BOARD_NAME'] = 'board_cb'
 		mesa['FIRMWARE'] = 'firmware_cb'
-		mesa['CARD_1'] = 'daughter_cb_1'
-		mesa['CARD_2'] = 'daughter_cb_2'
+		mesa['DAUGHTER_1'] = 'daughter_cb_1'
+		mesa['DAUGHTER_2'] = 'daughter_cb_2'
 
 		start = sections['[MESA]'][0]
 		end = sections['[MESA]'][1]
