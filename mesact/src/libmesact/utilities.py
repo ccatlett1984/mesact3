@@ -25,7 +25,6 @@ def new_config(parent):
 	parent.main_tw.setTabVisible(4, False)
 	parent.main_tw.setTabVisible(5, False)
 	parent.main_tw.setTabVisible(6, False)
-	parent.main_tw.setTabVisible(7, False)
 
 	# clear all entries
 	for child in parent.findChildren(QLineEdit):
@@ -36,8 +35,8 @@ def new_config(parent):
 		child.setValue(0)
 	for child in parent.findChildren(QCheckBox):
 		child.setChecked(False)
-	parent.servoPeriodSB.setValue(1000000)
-	parent.introGraphicLE.setText('emc2.gif')
+	parent.servo_period_sb.setValue(1000000)
+	parent.intro_graphic_le.setText('emc2.gif')
 	parent.main_tw.setCurrentIndex(0)
 
 def select_dir(parent):
@@ -70,15 +69,76 @@ def machine_name_changed(parent, text):
 		parent.config_path_lb.setText(parent.config_path)
 		parent.ini_path = os.path.join(parent.config_path, f'{parent.machine_name}.ini')
 	else:
-		parent.pathLabel.setText('')
+		parent.config_path_lb.setText('')
 		parent.config_path = False
 		parent.ini_path = False
+
+def save_settings(parent):
+	parent.settings.setValue('GUI/window_size', parent.size())
+	parent.settings.setValue('GUI/window_position', parent.pos())
+
+def update_settings(parent):
+	if parent.load_config_cb.isChecked():
+		parent.settings.setValue('STARTUP/config', parent.ini_path)
+	else:
+		parent.settings.setValue('STARTUP/config', False)
+
 
 def gui_changed(parent):
 	if parent.gui_cb.currentData() == 'flexgui':
 		parent.flex_gui_gb.setEnabled(True)
 	else:
 		parent.flex_gui_gb.setEnabled(False)
+
+def units_changed(parent):
+	if parent.linear_units_cb.currentData() == 'mm':
+		parent.units_second = 'mm/s'
+		parent.units_second2 = 'mm/s^2'
+		parent.units_minute = 'mm/m'
+	elif parent.linear_units_cb.currentData() == 'inch':
+		parent.units_second = 'in/s'
+		parent.units_second2 = 'i/s^2'
+		parent.units_minute = 'in/m'
+	else:
+		parent.units_second = 'N/A'
+		parent.units_second2 = 'N/A'
+		parent.units_minute = 'N/A'
+		for i in range(3):
+			getattr(parent, f'units_lb_{i}').setText('Select Linear Units on the Settings Tab')
+
+	for i in range(3): # cards
+		for j in range(6): # drives
+			getattr(parent, f'c{i}_max_vel_suffix_{j}').setText(parent.units_second)
+			getattr(parent, f'c{i}_max_vel_min_suffix_{j}').setText(parent.units_minute)
+
+	# c0_max_vel_suffix_0
+	parent.c0_max_vel_min_suffix_0.setText(parent.units_minute)
+	for i in range(6):
+		for j in range(3): # <-- change when more cards are added
+			getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText(parent.units_second)
+			getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText(parent.units_second2)
+	for i in range(3):
+		getattr(parent, f'units_lb_{i}').setText(f'Velocity & Acceleration in {parent.units_second}')
+	parent.max_lin_vel_lb.setText(f'{parent.units_second}')
+	parent.min_lin_jog_lb.setText(f'{parent.units_second}')
+	parent.default_lin_jog_lb.setText(f'{parent.units_second}')
+	parent.max_lin_jog_lb.setText(f'{parent.units_second}')
+	parent.min_linear_vel_lb.setText(f'{parent.min_lin_jog_vel_dsb.value() * 60:.1f} {parent.units_minute}')
+	parent.default_linear_vel_lb.setText(f'{parent.default_lin_jog_vel_dsb.value() * 60:.1f} {parent.units_minute}')
+	parent.max_linear_vel_lb.setText(f'{parent.max_lin_jog_vel_dsb.value() * 60:.1f} {parent.units_minute}')
+	parent.min_angular_vel_lb.setText(f'{parent.min_ang_jog_vel_dsb.value() * 60:.1f} deg/min')
+	parent.default_angular_vel_lb.setText(f'{parent.default_ang_jog_vel_dsb.value() * 60:.1f} deg/min')
+	parent.max_angular_vel_lb.setText(f'{parent.max_ang_jog_vel_dsb.value() * 60:.1f} deg/min')
+
+def max_vel_changed(parent):
+	if parent.traj_max_lin_vel_dsb.value() > 0:
+		val = parent.traj_max_lin_vel_dsb.value()
+		if parent.linear_units_cb.currentData() == 'mm':
+			parent.mlv_per_min_lb.setText(f'Max Velocity {val * 60:.1f} mm/min')
+		if parent.linear_units_cb.currentData() == 'inch':
+			parent.mlv_per_min_lb.setText(f'Max Velocity {val * 60:.1f} in/min')
+	else:
+		parent.mlv_per_min_lb.setText('')
 
 def toggle_mdi(parent):
 	if parent.sender().isChecked():

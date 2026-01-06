@@ -52,50 +52,100 @@
         <item row="1" column="1">
          <widget class="QGroupBox" name="groupBox_103">
           <property name="title">
-           <string>Quick Start</string>
+           <string>Quick Start Samples</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_234">
-           <item row="3" column="0">
-            <widget class="QPushButton" name="set_7i96s_xyz_pb">
+           <item row="7" column="0">
+            <widget class="QPushButton" name="sample_7i96s_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i96S XYZ</string>
+              <string>7i96S</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="sample_7i76eu_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i76EU</string>
              </property>
             </widget>
            </item>
            <item row="4" column="0">
-            <widget class="QPushButton" name="set_7i95t_x_pb">
+            <widget class="QPushButton" name="sample_7i92t_7i76_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i95T X</string>
+              <string>7i92T 7i76</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QPushButton" name="sample_7i95t_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i95T</string>
              </property>
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QPushButton" name="set_7i96s_x_pb">
+            <widget class="QPushButton" name="sample_5i25_7i76_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i96S X</string>
+              <string>5i25T 7i76</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QPushButton" name="set_7i95t_xyz_pb">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="sample_5i25_7i77_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i95T XYZ</string>
+              <string>5i25T 7i77</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
+           <item row="4" column="1">
+            <widget class="QPushButton" name="sample_7i92t_7i77_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T 7i77</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="sample_7i97t_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i97T</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QPushButton" name="default_imperial_pb">
+             <property name="toolTip">
+              <string>Creates a New Blank Configuration</string>
+             </property>
+             <property name="text">
+              <string>New Inch Config</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
             <widget class="QPushButton" name="default_metric_pb">
              <property name="enabled">
               <bool>true</bool>
@@ -105,36 +155,6 @@
              </property>
              <property name="text">
               <string>New Metric Config</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="default_imperial_pb">
-             <property name="toolTip">
-              <string>Creates a New Blank Configuration</string>
-             </property>
-             <property name="text">
-              <string>New Imperial Config</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QPushButton" name="set_7i92t_p2_7i76_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i92T P2 7i76</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="0">
-            <widget class="QPushButton" name="set_7i92t_p2_7i77_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i92T P2 7i77</string>
              </property>
             </widget>
            </item>
@@ -1168,6 +1188,9 @@ to the clipboard</string>
                  <property name="text">
                   <string/>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0">
@@ -1361,8 +1384,75 @@ to the clipboard</string>
                <string>Jog Slider Settings</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_107">
-               <item row="5" column="3">
-                <widget class="QLabel" name="max_angular_vel_lb">
+               <item row="4" column="1">
+                <widget class="QDoubleSpinBox" name="default_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QDoubleSpinBox" name="default_lin_jog_vel_dsb">
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>0.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="default_ang_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>deg/sec</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QDoubleSpinBox" name="min_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="suffix">
+                  <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QLabel" name="max_linear_vel_lb">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -1371,27 +1461,36 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_1110">
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1109">
                  <property name="text">
-                  <string>Default Angular Velocity</string>
+                  <string>Minimum Angular Velocity</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_1111">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1107">
                  <property name="text">
-                  <string>Maximum Angular Velocity</string>
+                  <string>Minimum Linear Velocity</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="2">
-                <widget class="QLabel" name="max_lin_jog_lb">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
+               <item row="5" column="1">
+                <widget class="QDoubleSpinBox" name="max_ang_jog_vel_dsb">
+                 <property name="enabled">
+                  <bool>true</bool>
                  </property>
-                 <property name="text">
+                 <property name="suffix">
                   <string/>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -1424,33 +1523,16 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="3">
-                <widget class="QLabel" name="min_angular_vel_lb">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
+               <item row="2" column="1">
+                <widget class="QDoubleSpinBox" name="max_lin_jog_vel_dsb">
+                 <property name="decimals">
+                  <number>1</number>
                  </property>
-                 <property name="text">
-                  <string/>
+                 <property name="maximum">
+                  <double>500.000000000000000</double>
                  </property>
-                </widget>
-               </item>
-               <item row="4" column="3">
-                <widget class="QLabel" name="def_angular_vel_lb">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="2">
-                <widget class="QLabel" name="def_ang_jog_lb">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string>deg/sec</string>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -1471,49 +1553,40 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QDoubleSpinBox" name="max_lin_jog_vel_dsb">
-                 <property name="decimals">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <double>500.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QDoubleSpinBox" name="min_ang_jog_vel_dsb">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="suffix">
-                  <string/>
-                 </property>
-                 <property name="decimals">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <double>500.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_1107">
-                 <property name="text">
-                  <string>Minimum Linear Velocity</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_21">
                  <property name="text">
                   <string>Default Linear Velocity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="min_linear_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QLabel" name="max_angular_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="max_lin_jog_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                 </widget>
                </item>
@@ -1533,51 +1606,6 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1">
-                <widget class="QDoubleSpinBox" name="def_ang_jog_vel_dsb">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="suffix">
-                  <string/>
-                 </property>
-                 <property name="decimals">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <double>500.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_1109">
-                 <property name="text">
-                  <string>Minimum Angular Velocity</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QDoubleSpinBox" name="def_lin_jog_vel_dsb">
-                 <property name="suffix">
-                  <string/>
-                 </property>
-                 <property name="decimals">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <double>500.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>0.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="2">
                 <widget class="QLabel" name="default_lin_jog_lb">
                  <property name="frameShape">
@@ -1588,18 +1616,15 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="min_linear_vel_lb">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_1110">
                  <property name="text">
-                  <string/>
+                  <string>Default Angular Velocity</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="3">
-                <widget class="QLabel" name="def_linear_vel_lb">
+                <widget class="QLabel" name="default_linear_vel_lb">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -1608,8 +1633,8 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="3">
-                <widget class="QLabel" name="max_linear_vel_lb">
+               <item row="4" column="3">
+                <widget class="QLabel" name="default_angular_vel_lb">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -1618,22 +1643,20 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
-                <widget class="QDoubleSpinBox" name="max_ang_jog_vel_dsb">
-                 <property name="enabled">
-                  <bool>true</bool>
+               <item row="3" column="3">
+                <widget class="QLabel" name="min_angular_vel_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
                  </property>
-                 <property name="suffix">
+                 <property name="text">
                   <string/>
                  </property>
-                 <property name="decimals">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <double>500.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_1111">
+                 <property name="text">
+                  <string>Maximum Angular Velocity</string>
                  </property>
                 </widget>
                </item>
@@ -1659,6 +1682,19 @@ by a unit (cm, mm, um, inch, in or mil)</string>
                </item>
               </layout>
              </widget>
+            </item>
+            <item row="0" column="1">
+             <spacer name="horizontalSpacer_96">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>
@@ -3009,7 +3045,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>3</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -44931,12 +44967,8 @@ auto enp2s0
   <tabstop>daughter_cb_2</tabstop>
   <tabstop>default_imperial_pb</tabstop>
   <tabstop>default_metric_pb</tabstop>
-  <tabstop>set_7i96s_x_pb</tabstop>
-  <tabstop>set_7i96s_xyz_pb</tabstop>
-  <tabstop>set_7i95t_x_pb</tabstop>
-  <tabstop>set_7i95t_xyz_pb</tabstop>
-  <tabstop>set_7i92t_p2_7i76_pb</tabstop>
-  <tabstop>set_7i92t_p2_7i77_pb</tabstop>
+  <tabstop>sample_7i76eu_pb</tabstop>
+  <tabstop>sample_7i96s_pb</tabstop>
   <tabstop>find_ip_board_pb</tabstop>
   <tabstop>verify_board_pb</tabstop>
   <tabstop>verify_pte</tabstop>
@@ -44962,10 +44994,10 @@ auto enp2s0
   <tabstop>position_feedback_cb</tabstop>
   <tabstop>max_feed_override_dsb</tabstop>
   <tabstop>min_lin_jog_vel_dsb</tabstop>
-  <tabstop>def_lin_jog_vel_dsb</tabstop>
+  <tabstop>default_lin_jog_vel_dsb</tabstop>
   <tabstop>max_lin_jog_vel_dsb</tabstop>
   <tabstop>min_ang_jog_vel_dsb</tabstop>
-  <tabstop>def_ang_jog_vel_dsb</tabstop>
+  <tabstop>default_ang_jog_vel_dsb</tabstop>
   <tabstop>max_ang_jog_vel_dsb</tabstop>
   <tabstop>front_tool_lathe_rb</tabstop>
   <tabstop>backtool_lathe_rb</tabstop>

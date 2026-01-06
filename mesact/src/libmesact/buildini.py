@@ -61,13 +61,13 @@ def build(parent):
 	if parent.min_lin_jog_vel_dsb.value() > 0:
 		contents.append(f'MIN_LINEAR_VELOCITY = {parent.min_lin_jog_vel_dsb.value():.1f}\n')
 	if parent.gui_cb.currentData() == 'axis':
-		contents.append(f'DEFAULT_LINEAR_VELOCITY = {parent.def_lin_jog_vel_dsb.value():.1f}\n')
+		contents.append(f'DEFAULT_LINEAR_VELOCITY = {parent.default_lin_jog_vel_dsb.value():.1f}\n')
 	if parent.max_lin_jog_vel_dsb.value() > 0:
 		contents.append(f'MAX_LINEAR_VELOCITY = {parent.max_lin_jog_vel_dsb.value():.1f}\n')
 	if parent.min_ang_jog_vel_dsb.value() > 0:
 		contents.append(f'MIN_ANGULAR_VELOCITY = {parent.min_ang_jog_vel_dsb.value():.1f}\n')
-	if parent.def_ang_jog_vel_dsb.value() > 0:
-		contents.append(f'DEFAULT_ANGULAR_VELOCITY = {parent.def_ang_jog_vel_dsb.value():.1f}\n')
+	if parent.default_ang_jog_vel_dsb.value() > 0:
+		contents.append(f'DEFAULT_ANGULAR_VELOCITY = {parent.default_ang_jog_vel_dsb.value():.1f}\n')
 	if parent.max_ang_jog_vel_dsb.value() > 0:
 		contents.append(f'MAX_ANGULAR_VELOCITY = {parent.max_ang_jog_vel_dsb.value():.1f}\n')
 	if parent.jog_increments.text():

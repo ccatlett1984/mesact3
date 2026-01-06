@@ -13,6 +13,7 @@ from libmesact import menus
 from libmesact import startup
 from libmesact import installed
 from libmesact import connections
+from libmesact import utilities
 
 # remove after testing FIXME
 from libmesact import tests
@@ -69,6 +70,8 @@ class mesact(QMainWindow):
 		self.size_lb.setText(f'{width}x{height}')
 		QMainWindow.resizeEvent(self, event)
 
+	def closeEvent(self, event):
+		utilities.save_settings(self)
 
 app = QApplication(sys.argv)
 window = mesact()

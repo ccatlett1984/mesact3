@@ -13,7 +13,7 @@ from libmesact import daughters
 from libmesact import sscards
 from libmesact import flash
 from libmesact import dialogs
-
+from libmesact import samples
 
 def connect(parent):
 	# Menu Items
@@ -79,11 +79,23 @@ def connect(parent):
 
 	# Machine Tab
 	parent.machine_name_le.textChanged[str].connect(partial(utilities.machine_name_changed, parent))
+	parent.load_config_cb.stateChanged.connect(partial(utilities.update_settings, parent))
 	parent.board_cb.currentIndexChanged.connect(partial(boards.changed, parent))
 	parent.daughter_cb_1.currentIndexChanged.connect(partial(daughters.changed, parent))
 	parent.daughter_cb_2.currentIndexChanged.connect(partial(daughters.changed, parent))
 	parent.find_ip_board_pb.clicked.connect(partial(flash.find_ip_board, parent))
 	parent.verify_board_pb.clicked.connect(partial(flash.verify_board, parent))
+
+	parent.default_imperial_pb.clicked.connect(partial(samples.default_imperial, parent))
+	parent.default_metric_pb.clicked.connect(partial(samples.default_metric, parent))
+	parent.sample_5i25_7i76_pb.clicked.connect(partial(samples.sample_5i25_7i76, parent))
+	parent.sample_5i25_7i77_pb.clicked.connect(partial(samples.sample_5i25_7i77, parent))
+	parent.sample_7i76eu_pb.clicked.connect(partial(samples.sample_7i76eu, parent))
+	parent.sample_7i92t_7i76_pb.clicked.connect(partial(samples.sample_7i92t_7i76, parent))
+	parent.sample_7i92t_7i77_pb.clicked.connect(partial(samples.sample_7i92t_7i77, parent))
+	parent.sample_7i95t_pb.clicked.connect(partial(samples.sample_7i95t, parent))
+	parent.sample_7i96s_pb.clicked.connect(partial(samples.sample_7i96s, parent))
+	parent.sample_7i97t_pb.clicked.connect(partial(samples.sample_7i97t, parent))
 
 	# Firmware Tab
 	parent.firmware_cb.currentIndexChanged.connect(partial(flash.firmware_changed, parent))
@@ -93,6 +105,8 @@ def connect(parent):
 	parent.halui_cb.toggled.connect(partial(utilities.toggle_mdi, parent))
 	parent.add_mdi_command_pb.clicked.connect(partial(utilities.add_mdi_row, parent))
 	parent.mdi_le_0.returnPressed.connect(partial(utilities.add_mdi_row, parent))
+	parent.linear_units_cb.currentIndexChanged.connect(partial(utilities.units_changed, parent))
+	parent.traj_max_lin_vel_dsb.valueChanged.connect(partial(utilities.max_vel_changed, parent))
 
 	# Drive Tabs
 	for i in range(6):
