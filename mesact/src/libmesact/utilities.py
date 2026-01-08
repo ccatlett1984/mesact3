@@ -73,6 +73,18 @@ def machine_name_changed(parent, text):
 		parent.config_path = False
 		parent.ini_path = False
 
+def input_changed(parent):
+	# 7i95, 7i96s and 7i96s have slow
+	if parent.board_0_hal_name in ['7i95', '7i96s', '7i96s']:
+		input_number = parent.sender().objectName().split('_')[-1]
+		print(f'input_number {input_number}')
+		checked = parent.sender().isChecked()
+		print(f'checked {checked}')
+		if parent.sender().objectName().startswith('c0_input_invert_'):
+			getattr(parent, f'c0_input_debounce_{input_number}' ).setEnabled(not checked)
+		elif parent.sender().objectName().startswith('c0_input_debounce_'):
+			getattr(parent, f'c0_input_invert_{input_number}' ).setEnabled(not checked)
+
 def save_settings(parent):
 	parent.settings.setValue('GUI/window_size', parent.size())
 	parent.settings.setValue('GUI/window_position', parent.pos())
