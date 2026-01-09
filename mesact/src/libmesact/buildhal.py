@@ -78,7 +78,7 @@ def build(parent):
 
 	# Joints
 	# 7i96s has a pwmgen enable for something
-	drive_enables = {'7i76': 'stepgen', '7i76e': 'stepgen', '7i77': 'pwmgen',
+	drive_enables = {'7c80': 'stepgen', '7i76': 'stepgen', '7i76e': 'stepgen', '7i77': 'pwmgen',
 	'7i95': 'stepgen', '7i96': 'stepgen', '7i96s': 'stepgen', '7i97': 'pwmgen'}
 
 	joint = 0
