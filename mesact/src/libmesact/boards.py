@@ -395,20 +395,20 @@ def daughter_boards(parent, port_1 , port_2):
 		for item in boards:
 			parent.daughter_cb_1.addItem(item[0], item[1])
 
-	# temp FIXME when daughters are programmed
-	parent.daughter_cb_1.model().item(3).setEnabled(False)
-	parent.daughter_cb_1.model().item(4).setEnabled(False)
-	parent.daughter_cb_1.model().item(5).setEnabled(False)
+		# temp FIXME when daughters are programmed
+		parent.daughter_cb_1.model().item(3).setEnabled(False)
+		parent.daughter_cb_1.model().item(4).setEnabled(False)
+		parent.daughter_cb_1.model().item(5).setEnabled(False)
 
 	if port_2:
 		parent.daughter_lb_2.setText(port_2)
 		for item in boards:
 			parent.daughter_cb_2.addItem(item[0], item[1])
 
-	# temp FIXME when daughters are programmed
-	parent.daughter_cb_2.model().item(3).setEnabled(False)
-	parent.daughter_cb_2.model().item(4).setEnabled(False)
-	parent.daughter_cb_2.model().item(5).setEnabled(False)
+		# temp FIXME when daughters are programmed
+		parent.daughter_cb_2.model().item(3).setEnabled(False)
+		parent.daughter_cb_2.model().item(4).setEnabled(False)
+		parent.daughter_cb_2.model().item(5).setEnabled(False)
 
 	parent.daughter_cb_1.blockSignals(False)
 	parent.daughter_cb_2.blockSignals(False)
