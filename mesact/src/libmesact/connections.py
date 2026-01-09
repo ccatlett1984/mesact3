@@ -91,10 +91,12 @@ def connect(parent):
 	parent.default_metric_pb.clicked.connect(partial(samples.default_metric, parent))
 	parent.sample_5i25_7i76_pb.clicked.connect(partial(samples.sample_5i25_7i76, parent))
 	parent.sample_5i25_7i77_pb.clicked.connect(partial(samples.sample_5i25_7i77, parent))
+	parent.sample_7c80_pb.clicked.connect(partial(samples.sample_7c80, parent))
 	parent.sample_7i76eu_pb.clicked.connect(partial(samples.sample_7i76eu, parent))
 	parent.sample_7i92t_7i76_pb.clicked.connect(partial(samples.sample_7i92t_7i76, parent))
 	parent.sample_7i92t_7i77_pb.clicked.connect(partial(samples.sample_7i92t_7i77, parent))
 	parent.sample_7i95t_pb.clicked.connect(partial(samples.sample_7i95t, parent))
+	parent.sample_7i96_pb.clicked.connect(partial(samples.sample_7i96, parent))
 	parent.sample_7i96s_pb.clicked.connect(partial(samples.sample_7i96s, parent))
 	parent.sample_7i97t_pb.clicked.connect(partial(samples.sample_7i97t, parent))
 

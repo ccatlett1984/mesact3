@@ -151,11 +151,10 @@ def set_default_pid(parent):
 	getattr(parent, f'{connector}_max_error_{joint}').setText('0.0005')
 	getattr(parent, f'{connector}_deadband_{joint}').setText('0')
 
-
-
 def set_default_ferror(parent):
 	if not parent.linear_units_cb.currentData():
-		QMessageBox.warning(parent,'Warning', 'Machine Tab\nLinear Units\nmust be selected', QMessageBox.Ok)
+		msg = ('Machine Tab\nLinear Units\nmust be selected')
+		dialogs.msg_error_ok(parent, msg, 'Error')
 		return
 	connector = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]

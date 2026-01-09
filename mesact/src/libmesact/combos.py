@@ -19,7 +19,6 @@ def build_combos(parent):
 	['7i96S', '7i96s'],
 	['7i97', '7i97'],
 	['7i97T', '7i97t'],
-	['7i98', '7i98'],
 	]
 
 	for item in boards:

@@ -195,7 +195,6 @@ def build(parent):
 			contents.append('loadrt classicladder_rt\n')
 		contents.append('addf classicladder.0.refresh servo-thread 1\n')
 
-
 	try:
 		with open(hal_path, 'w') as f:
 			f.writelines(contents)

@@ -87,10 +87,10 @@ def changed(parent, index):
 			address(parent, 'spi')
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 6)
-			set_io(parent, 24, False, False, 8, False, False)
+			set_io(parent, 24, True, True, 8, True, False)
 			parent.board_interface = 'spi'
 			parent.board_0_type = '' # FIXME
-			parent.board_0_hal_name = ''
+			parent.board_0_hal_name = '7c80'
 			parent.mesaflash_name = '7c80'
 			check_mesaflash(parent, (3,4,2))
 			info = ('7c80 uses SPI for communications.\n'
@@ -107,7 +107,7 @@ def changed(parent, index):
 			set_io(parent, None, False, False, None, False, False)
 			parent.board_interface = 'spi'
 			parent.board_0_type = '' # FIXME
-			parent.board_0_hal_name = ''
+			parent.board_0_hal_name = '7c81'
 			parent.mesaflash_name = '7c81'
 			check_mesaflash(parent, (3,4,2))
 			info = ('7c81 uses SPI for communications.\n'
@@ -222,7 +222,7 @@ def changed(parent, index):
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
 			set_drives(parent, 6)
-			set_io(parent, 24, False, False, 6, False, False)
+			set_io(parent, 24, True, True, 6, True, False)
 			parent.board_interface = 'eth'
 			parent.board_0_type = 'stepper'
 			parent.board_0_hal_name = '7i95'
@@ -426,20 +426,16 @@ def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 		parent.c0_board_tw.setTabVisible(7, True)
 		for i in range(inputs):
 			getattr(parent, f'c0_input_{i}').setEnabled(True)
-			if i_invert:
-				getattr(parent, f'c0_input_invert_{i}').setEnabled(True)
-			if i_debounce:
-				getattr(parent, f'c0_input_debounce_{i}').setEnabled(True)
+			getattr(parent, f'c0_input_invert_{i}').setEnabled(i_invert)
+			getattr(parent, f'c0_input_debounce_{i}').setEnabled(i_debounce)
 	else:
 		parent.c0_board_tw.setTabVisible(7, False)
 	if outputs:
 		parent.c0_board_tw.setTabVisible(8, True)
 		for i in range(outputs):
 			getattr(parent, f'c0_output_{i}').setEnabled(True)
-			if o_invert:
-				getattr(parent, f'c0_output_invert_{i}').setEnabled(True)
-			if o_dir:
-				getattr(parent, f'c0_output_type_{i}').setEnabled(True)
+			getattr(parent, f'c0_output_invert_{i}').setEnabled(o_invert)
+			getattr(parent, f'c0_output_type_{i}').setEnabled(o_dir)
 	else:
 		parent.c0_board_tw.setTabVisible(8, False)
 

@@ -3,7 +3,7 @@ from datetime import datetime
 from functools import partial
 
 from PyQt6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QCheckBox
-from PyQt6.QtWidgets import QFileDialog, QLabel
+from PyQt6.QtWidgets import QFileDialog, QLabel, QPushButton
 
 def is_number(s):
 	try:
@@ -27,6 +27,11 @@ def new_config(parent):
 	parent.main_tw.setTabVisible(6, False)
 
 	# clear all entries
+	for child in parent.findChildren(QPushButton):
+		if child.menu() is not None:
+			child.setText('Select')
+	for child in parent.findChildren(QComboBox):
+		child.setCurrentIndex(0)
 	for child in parent.findChildren(QLineEdit):
 		child.clear()
 	for child in parent.findChildren(QComboBox):
@@ -75,11 +80,11 @@ def machine_name_changed(parent, text):
 
 def input_changed(parent):
 	# 7i95, 7i96s and 7i96s have slow
-	if parent.board_0_hal_name in ['7i95', '7i96s', '7i96s']:
+	if parent.board_0_hal_name in ['7c80', '7i95', '7i96s', '7i97']:
 		input_number = parent.sender().objectName().split('_')[-1]
-		print(f'input_number {input_number}')
+		#print(f'input_number {input_number}')
 		checked = parent.sender().isChecked()
-		print(f'checked {checked}')
+		#print(f'checked {checked}')
 		if parent.sender().objectName().startswith('c0_input_invert_'):
 			getattr(parent, f'c0_input_debounce_{input_number}' ).setEnabled(not checked)
 		elif parent.sender().objectName().startswith('c0_input_debounce_'):

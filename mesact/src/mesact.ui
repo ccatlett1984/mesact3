@@ -55,7 +55,7 @@
            <string>Quick Start Samples</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_234">
-           <item row="7" column="0">
+           <item row="8" column="0">
             <widget class="QPushButton" name="sample_7i96s_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -65,7 +65,17 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="default_imperial_pb">
+             <property name="toolTip">
+              <string>Creates a New Blank Configuration</string>
+             </property>
+             <property name="text">
+              <string>Inch Config</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
             <widget class="QPushButton" name="sample_7i76eu_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -75,7 +85,7 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
+           <item row="5" column="0">
             <widget class="QPushButton" name="sample_7i92t_7i76_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -85,7 +95,17 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
+           <item row="8" column="1">
+            <widget class="QPushButton" name="sample_7i97t_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i97T</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
             <widget class="QPushButton" name="sample_7i95t_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -95,13 +115,36 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QPushButton" name="sample_5i25_7i76_pb">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="default_metric_pb">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="toolTip">
+              <string>Creates a New Blank Configuration</string>
+             </property>
+             <property name="text">
+              <string>Metric Config</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="sample_7i92t_7i77_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>5i25T 7i76</string>
+              <string>7i92T 7i77</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="sample_7i96_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96</string>
              </property>
             </widget>
            </item>
@@ -115,46 +158,23 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QPushButton" name="sample_7i92t_7i77_pb">
+           <item row="3" column="0">
+            <widget class="QPushButton" name="sample_7c80_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i92T 7i77</string>
+              <string>7c80</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
-            <widget class="QPushButton" name="sample_7i97t_pb">
+           <item row="2" column="0">
+            <widget class="QPushButton" name="sample_5i25_7i76_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i97T</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QPushButton" name="default_imperial_pb">
-             <property name="toolTip">
-              <string>Creates a New Blank Configuration</string>
-             </property>
-             <property name="text">
-              <string>New Inch Config</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QPushButton" name="default_metric_pb">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="toolTip">
-              <string>Creates a New Blank Configuration</string>
-             </property>
-             <property name="text">
-              <string>New Metric Config</string>
+              <string>5i25T 7i76</string>
              </property>
             </widget>
            </item>
@@ -1134,7 +1154,7 @@ to the clipboard</string>
         <item row="0" column="0" rowspan="3">
          <widget class="QTabWidget" name="tabWidget_6">
           <property name="currentIndex">
-           <number>6</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_166">
            <attribute name="title">
@@ -3052,7 +3072,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -12898,7 +12918,11 @@ Leave blank to home the joint manually.</string>
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QComboBox" name="c0_output_type_0"/>
+                   <widget class="QComboBox" name="c0_output_type_0">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="3">
                    <widget class="QComboBox" name="c0_output_type_1"/>
@@ -44973,7 +44997,6 @@ auto enp2s0
   <tabstop>daughter_cb_1</tabstop>
   <tabstop>daughter_cb_2</tabstop>
   <tabstop>default_imperial_pb</tabstop>
-  <tabstop>default_metric_pb</tabstop>
   <tabstop>sample_7i76eu_pb</tabstop>
   <tabstop>sample_7i96s_pb</tabstop>
   <tabstop>find_ip_board_pb</tabstop>

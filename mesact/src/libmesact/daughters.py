@@ -67,27 +67,22 @@ def set_io(parent, drive_tw, inputs, i_invert, i_debounce, outputs, o_invert, o_
 	for i in range(16):
 		getattr(parent, f'c{drive_tw}_output_{i}').setEnabled(False)
 		getattr(parent, f'c{drive_tw}_output_invert_{i}').setEnabled(False)
-		# FIXME the newer daughter boards may have this so add to ui
-		#getattr(parent, f'c{io}_output_type_{i}').setVisible(False)
+		getattr(parent, f'c{drive_tw}_output_type_{i}').setEnabled(False)
 
 	if inputs:
 		getattr(parent, f'c{drive_tw}_board_tw').setTabVisible(7, True)
 		for i in range(inputs):
 			getattr(parent, f'c{drive_tw}_input_{i}').setEnabled(True)
-			if i_invert:
-				getattr(parent, f'c{drive_tw}_input_invert_{i}').setEnabled(True)
-			if i_debounce:
-				getattr(parent, f'c{drive_tw}_input_debounce_{i}').setEnabled(True)
+			getattr(parent, f'c{drive_tw}_input_invert_{i}').setEnabled(i_invert)
+			getattr(parent, f'c{drive_tw}_input_debounce_{i}').setEnabled(i_debounce)
 	else:
 		getattr(parent, f'c{drive_tw}_board_tw').setTabVisible(7, False)
 	if outputs:
 		getattr(parent, f'c{drive_tw}_board_tw').setTabVisible(8, True)
 		for i in range(outputs):
 			getattr(parent, f'c{drive_tw}_output_{i}').setEnabled(True)
-			if o_invert:
-				getattr(parent, f'c{drive_tw}_output_invert_{i}').setEnabled(True)
-			if o_dir:
-				getattr(parent, f'c{drive_tw}_output_type_{i}').setEnabled(True)
+			getattr(parent, f'c{drive_tw}_output_invert_{i}').setEnabled(o_invert)
+			getattr(parent, f'c{drive_tw}_output_type_{i}').setEnabled(o_dir)
 	else:
 		getattr(parent, f'c{drive_tw}_board_tw').setTabVisible(8, False)
 

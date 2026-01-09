@@ -10,6 +10,13 @@ hm2_5i25.0.7i76.0.0.input-00-not to 31 Pins
 hm2_5i25.0.7i76.0.0.output-00 to 15 Pins
 hm2_5i25.0.7i76.0.0.output-00-invert to 15 Parameters
 
+7c80
+hm2_7c80.0.inmux.00.input-00 to 23 Pins
+hm2_7c80.0.inmux.00.input-00-not to 23 Pins
+hm2_7c80.0.inmux.00.input-00-slow to 23 Pins
+hm2_7c80.0.ssr.00.invert-00 to 07 Pins
+hm2_7c80.0.ssr.00.out-00 to 07 Pins
+
 7i76E
 hm2_7i76e.0.7i76.0.0.input-00 to 31 Pins
 hm2_7i76e.0.7i76.0.0.input-00-not to 31 Pins
