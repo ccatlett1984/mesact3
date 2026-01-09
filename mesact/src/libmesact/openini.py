@@ -73,6 +73,14 @@ def load_ini(parent, ini_file=None): # FIXME not loading daughter board
 				if key in emc and value not in ['Select', 'None']:
 					update(parent, emc[key], value)
 
+	# load the readme file if it exists. this has to be after
+	# updating the machine name so parent.config_path is correct
+	readme_file = os.path.join(parent.config_path, 'README')
+	if os.path.isfile(readme_file):
+		with open(readme_file, 'r') as f:
+			contents = f.read()
+		parent.readme_pte.appendPlainText(contents)
+
 	'''
 	hm2 = [
 	['[HM2]', 'ADDRESS', 'address_cb'],

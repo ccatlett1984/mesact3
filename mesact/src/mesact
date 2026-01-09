@@ -57,7 +57,7 @@ class mesact(QMainWindow):
 		connections.connect(self)
 		startup.hide_tabs(self)
 		startup.disable_controls(self)
-		#startup.load_ini(self)
+		startup.load_ini(self)
 		#startup.test(self)
 		#startup.open_test(self)
 
