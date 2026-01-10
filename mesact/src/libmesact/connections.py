@@ -17,6 +17,7 @@ from libmesact import flash
 from libmesact import dialogs
 from libmesact import samples
 from libmesact import buildio
+from libmesact import buildss
 
 def connect(parent):
 	# Menu Items
@@ -105,6 +106,7 @@ def connect(parent):
 
 	# Testing
 	parent.build_io_pb.clicked.connect(partial(buildio.build, parent))
+	parent.build_ss_pb.clicked.connect(partial(buildss.build, parent))
 
 
 	# Firmware Tab

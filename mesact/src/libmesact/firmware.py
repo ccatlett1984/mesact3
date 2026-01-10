@@ -3,7 +3,6 @@ import os
 def load(parent):
 	parent.firmware_cb.clear()
 	parent.firmware_info_pte.clear()
-	#board = parent.board_cb.currentData()
 	if parent.mesaflash_name:
 		path = os.path.join(parent.firmware_path, parent.mesaflash_name)
 		if os.path.exists(path):
@@ -19,18 +18,18 @@ def load(parent):
 				parent.firmware_tw.setCurrentIndex(0)
 				if parent.read_hmid_gb.isEnabled(): # set mesaflash tools on if installed
 					parent.firmware_gb.setEnabled(True)
-			else:
-				noFirmware(parent, parent.board_hal_name)
+		else:
+			no_firmware(parent, parent.board_hal_name)
 	else:
-		noFirmware(parent, parent.board_hal_name)
+		no_firmware(parent, parent.board_hal_name)
 
 
-def noFirmware(parent, board):
+def no_firmware(parent, board):
 	parent.firmware_tw.setCurrentIndex(1)
 	msg = (f'No Firmware found for the {board}\n'
 	'Downloads > Firmware from the menu if you have an Internet connection\n'
 	'The firmware will be to downloaded and installed\n'
-	f'in {os.path.expanduser("~")}/.local/lib/libmesact/{board}.\n\n'
+	f'in {os.path.expanduser("~")}/.local/lib/libmesact/{board}\n\n'
 	'If you do not have an Internet connection\nfrom another computer download from \n'
 	f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz\n'
 	f'Extract the firmware to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')

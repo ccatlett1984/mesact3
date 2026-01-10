@@ -48,7 +48,6 @@ def select_dir(parent):
 	options = QFileDialog.Option.DontUseNativeDialog
 	dir_path = False
 	file_dialog = QFileDialog()
-	print('here')
 	file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
 	file_dialog.setOptions(QFileDialog.Option.DontUseNativeDialog)
 	file_dialog.setWindowTitle('Open File')
