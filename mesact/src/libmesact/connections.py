@@ -65,8 +65,9 @@ def connect(parent):
 	parent.action7i73.triggered.connect(partial(download.download_manual, '7i73man.pdf', parent))
 	parent.action7i74.triggered.connect(partial(download.download_manual, '7i74man.pdf', parent))
 	parent.action7i83.triggered.connect(partial(download.download_manual, '7i83man.pdf', parent))
-	parent.action7i84.triggered.connect(partial(download.download_manual, '7i84man.pdf', parent))
+	parent.action7i84U.triggered.connect(partial(download.download_manual, '7i84uman.pdf', parent))
 	parent.action7i87.triggered.connect(partial(download.download_manual, '7i87man.pdf', parent))
+	parent.action7iAO.triggered.connect(partial(download.download_manual, '7ia0man.pdf', parent))
 	parent.action7i77ISOL.triggered.connect(partial(download.download_manual, '7i77isolman.pdf', parent))
 	parent.actionTHCAD2.triggered.connect(partial(download.download_manual, 'thcad2man.pdf', parent))
 
