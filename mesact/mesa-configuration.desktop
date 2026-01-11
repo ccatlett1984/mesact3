@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=3.0
+Type=Application
+Name=Mesa CT
+Exec=mesact
+Icon=linuxcncicon
+Categories=Utility;Engineering;X-CNC;
+Terminal=false
+StartupNotify=true
+StartupWMClass=mesact
+GenericName=Mesa Configuration Tool
+Comment=Mesa FPGA AnythingI/O boards configuration tool
+
+

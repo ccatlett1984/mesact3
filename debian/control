@@ -1,0 +1,20 @@
+Source: mesact
+Maintainer: John Thornton <dev@gnipsel.com>
+Build-Depends: debhelper (>= 11.0.0)
+Standards-Version: 4.6.2
+Section: utils
+Priority: optional
+Vcs-Browser: https://github.com/jethornton/mesact/
+Vcs-Git: https://github.com/jethornton/mesact/
+Rules-Requires-Root: no
+
+Package: mesact
+Priority: optional
+Architecture: any
+Depends: ${misc:Depends}, python3 (>=3.6), python3-pyqt6,
+ python3-requests, zip, python3-distro
+Suggests: linuxcnc-uspace, mesaflash
+Description: Mesa Configuration Tools for LinuxCNC
+ This software can create configuration files used by LinuxCNC to
+ control 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i95T, 7i96, 7i96S, 7i97 and 7i98
+ Mesa Electronics motion control boards, smart serial boards and daughter cards.
