@@ -149,7 +149,7 @@ def build_menus(parent):
 		button.setMenu(menu)
 
 	for i in range(8):
-		getattr(parent, 'ss7i73keylbl_' + str(i)).setText(f'Output {i+10}')
+		getattr(parent, 'ss7i73keylbl_' + str(i)).setText(f'Out {i+10}')
 		button = getattr(parent, f'ss7i73key_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
@@ -158,7 +158,7 @@ def build_menus(parent):
 		button.setMenu(menu)
 
 	for i in range(8,16):
-		getattr(parent, 'ss7i73keylbl_' + str(i)).setText(f'Input {i+8}')
+		getattr(parent, 'ss7i73keylbl_' + str(i)).setText(f'In {i+8}')
 		button = getattr(parent, f'ss7i73key_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
@@ -167,7 +167,7 @@ def build_menus(parent):
 		button.setMenu(menu)
 
 	for i in range(8):
-		getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Output {i+2}')
+		getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Out {i+2}')
 		button = getattr(parent, f'ss7i73lcd_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
@@ -176,7 +176,7 @@ def build_menus(parent):
 		button.setMenu(menu)
 
 	for i in range(8,12):
-		getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Output {i+10}')
+		getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Out {i+10}')
 		button = getattr(parent, f'ss7i73lcd_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))

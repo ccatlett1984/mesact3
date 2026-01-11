@@ -20,21 +20,22 @@ def build(parent):
 		'7i71':'48 Sourcing Outputs',
 		'7i72':'48 Sinking Outputs',
 		'7i73':'Pendant Card',
+		'7i83':'6 Channel Analog Outputs'
 		'7i84u':'32 Inputs 16 Outputs',
-		'7i87':'8 Analog Inputs',
+		'7i87':'8 Channel Analog Inputs',
 		'7iAO':'48 Inputs 24, Outputs'
 		'''
 
 
 		match ss_board:
 			case '7i70':
-				contents.append('\n# Inputs\n')
+				contents.append('\n# 7i70 Inputs\n')
 				contents.extend(build_inputs(parent, host_board, ss_board, 48))
 			case '7i71':
-				contents.append('\n# Outputs\n')
+				contents.append('\n# 7i71 Outputs\n')
 				contents.extend(build_outputs(parent, host_board, ss_board, 48))
 			case '7i72':
-				contents.append('\n# Outputs\n')
+				contents.append('\n# 7i72 Outputs\n')
 				contents.extend(build_outputs(parent, host_board, ss_board, 48))
 
 

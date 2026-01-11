@@ -1,0 +1,19 @@
+
+7i70
+hm2_7i76e.0.7i70.0.1.input-00 to 47 Pins
+hm2_7i76e.0.7i70.0.1.input-00-not to 47 Pins
+
+hm2_7i76e.0.7i70.0.1.analog0 to 5 Parameters
+
+7i71
+hm2_7i76e.0.7i71.0.1.output-00 to 47 Pins
+hm2_7i76e.0.7i71.0.1.output-00-invert to 47 Parameters
+
+7i72
+hm2_7i76e.0.7i72.0.1.output-00 to 47 Pins
+hm2_7i76e.0.7i72.0.1.output-00-invert to 47 Parameters
+
+7i73
+hm2_7i76e.0.7i73.0.1.input-00 to 23 Pins
+hm2_7i76e.0.7i73.0.1.output-00 to 21 Pins
+hm2_7i76e.0.7i73.0.1.output-00-invert to 21 Parameters

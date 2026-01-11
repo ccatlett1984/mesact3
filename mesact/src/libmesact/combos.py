@@ -158,6 +158,7 @@ def build_combos(parent):
 		['7i71', '7i71'],
 		['7i72', '7i72'],
 		['7i73', '7i73'],
+		['7i83', '7i83'],
 		['7i84U', '7i84U'],
 		['7i87', '7i87'],
 		['7iAO', '7iAO']
@@ -165,18 +166,18 @@ def build_combos(parent):
 
 	for item in ss_boards:
 		parent.ss_card_cb.addItem(item[0], item[1])
-	'''
-	parent.ss_card_cb.model().item(1).setEnabled(False)
+
+	parent.ss_card_cb.model().item(4).setEnabled(False)
 	parent.ss_card_cb.model().item(5).setEnabled(False)
 	parent.ss_card_cb.model().item(6).setEnabled(False)
 	parent.ss_card_cb.model().item(7).setEnabled(False)
 	parent.ss_card_cb.model().item(8).setEnabled(False)
-	'''
+
 
 	# 7i73 Combo Boxes
-	parent.ss7i73_keypad_cb.addItem('None', ['w5d', 'w6d'])
-	parent.ss7i73_keypad_cb.addItem('4x8', ['w5d', 'w6u'])
-	parent.ss7i73_keypad_cb.addItem('8x8', ['w5u', 'w6d'])
+	parent.ss7i73_keypad_cb.addItem('None', False)
+	parent.ss7i73_keypad_cb.addItem('4x8', '4x8')
+	parent.ss7i73_keypad_cb.addItem('8x8', '8x8')
 
 	parent.ss7i73lcd_cb.addItem('Disabled', 'w7d')
 	parent.ss7i73lcd_cb.addItem('Enabled', 'w7u')
