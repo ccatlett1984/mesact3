@@ -39,7 +39,7 @@ inputs = [{'Not Used':'Select'},
 		{'V Axis':['Jog V Plus', 'Jog V Minus', 'Jog V Enable', 'Jog V + Joint Enable']},
 		{'W Axis':['Jog W Plus', 'Jog W Minus', 'Jog W Enable', 'Jog W + Joint Enable']}
 	]},
-	{'Motion':['Probe Input', 'Digital 0', 'Digital 1', 'Digital 2', 'Digital 3']},
+	{'Motion':['Probe Input', 'Digital In 0', 'Digital In 1', 'Digital In 2', 'Digital In 3']},
 	{'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 	{'I/O Control':['Lube Level', 'Tool Changed', 'Tool Prepared', 'Tool Changer Fault', 
 	{'External E Stop':['E Stop 0', 'E Stop 1', 'E Stop 2', 'E Stop 3']}]}
@@ -48,11 +48,10 @@ inputs = [{'Not Used':'Select'},
 # {'':['', ]},
 
 outputs = [{'Not Used':'Select'},
-	{'Motion':['Motion Enable']},
 	{'Spindle':['Spindle On', 'Spindle CW', 'Spindle CCW', 'Spindle Brake']},
 	{'I/O Control':['Coolant Flood', 'Coolant Mist', 'Lube Pump',
 		'Tool Change', 'Tool Prepare', 'E-Stop Out']},
-	{'Digital Out':['Digital Out 0', 'Digital Out 1', 'Digital Out 2', 'Digital Out 3', ]},
+	{'Motion':['Motion Enable', 'Digital Out 0', 'Digital Out 1', 'Digital Out 2', 'Digital Out 3', ]},
 	{'Joint':['Joint 0 Amp Enable', 'Joint 1 Amp Enable', 'Joint 2 Amp Enable', 
 	'Joint 3 Amp Enable', 'Joint 4 Amp Enable', 'Joint 5 Amp Enable', 
 	'Joint 6 Amp Enable', 'Joint 7 Amp Enable', 'Joint 8 Amp Enable']}
