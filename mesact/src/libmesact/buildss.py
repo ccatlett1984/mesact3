@@ -43,6 +43,14 @@ def build(parent):
 				contents.extend(build_inputs(parent, host_board, ss_board, 32))
 				contents.append('\n# 7i84U Outputs\n')
 				contents.extend(build_outputs(parent, host_board, ss_board, 16))
+				sink = ''
+				source = ''
+				for i in reversed(range(16)):
+					sink += getattr(parent, f'ss7i84_out_type_{i}').currentData()[0]
+					source += getattr(parent, f'ss7i84_out_type_{i}').currentData()[1]
+				contents.append(f'\n# Output Types for {ss_board}\n')
+				contents.append(f'setp hm2_{host_board}.0.7i84u.0.0.output_sink {f"0x{int(sink, 2):0>4X}"}\n')
+				contents.append(f'setp hm2_{host_board}.0.7i84u.0.0.output_source {f"0x{int(source, 2):0>4X}"}\n\n')
 
 
 		create_file(parent, file_path, contents)

@@ -374,7 +374,7 @@ def build(parent):
 		contents.append(f'HOST_BOARD = {parent.sserial_host_cb.currentText()}\n')
 		contents.append(f'SSERIAL_BOARD = {parent.ss_card_cb.currentText()}\n')
 
-	if parent.ss_card_cb.currentText() == '7i64':
+	if parent.ss_card_cb.currentData() == '7i64':
 		# 24 ss7i64in_
 		# 24 ss7i64out_
 		for i in range(24):
@@ -384,7 +384,7 @@ def build(parent):
 			if getattr(parent, f'ss7i64out_{i}').text() != 'Select':
 				contents.append(f'ss7i64out_{i} = {getattr(parent, "ss7i64out_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i69':
+	elif parent.ss_card_cb.currentData() == '7i69':
 		# 24 ss7i69in_
 		# 24 ss7i69out_
 		for i in range(24):
@@ -394,25 +394,25 @@ def build(parent):
 			if getattr(parent, f'ss7i69out_{i}').text() != 'Select':
 				contents.append(f'ss7i69out_{i} = {getattr(parent, "ss7i69out_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i70':
+	elif parent.ss_card_cb.currentData() == '7i70':
 		# 48 ss7i70in_
 		for i in range(48):
 			if getattr(parent, f'ss7i70in_{i}').text() != 'Select':
 				contents.append(f'ss7i70in_{i} = {getattr(parent, "ss7i70in_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i71':
+	elif parent.ss_card_cb.currentData() == '7i71':
 		# 48 ss7i71out_
 		for i in range(48):
 			if getattr(parent, f'ss7i71out_{i}').text() != 'Select':
 				contents.append(f'ss7i71out_{i} = {getattr(parent, "ss7i71out_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i72':
+	elif parent.ss_card_cb.currentData() == '7i72':
 		# 48 ss7i72out_
 		for i in range(48):
 			if getattr(parent, f'ss7i72out_{i}').text() != 'Select':
 				contents.append(f'ss7i72out_{i} = {getattr(parent, "ss7i72out_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i73':
+	elif parent.ss_card_cb.currentData() == '7i73':
 		# 16 ss7i73key_
 		# 12 ss7i73lcd_
 		# 16 ss7i73in_
@@ -430,17 +430,17 @@ def build(parent):
 			if getattr(parent, f'ss7i73out_{i}').text() != 'Select':
 				contents.append(f'ss7i73out_{i} = {getattr(parent, "ss7i73out_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i84':
+	elif parent.ss_card_cb.currentData() == '7i84u':
 		# 32 ss7i84in_
 		# 16 ss7i84out_
 		for i in range(32):
-			if getattr(parent, f'ss7i84in_{i}').text() != 'Select':
-				contents.append(f'ss7i84in_{i} = {getattr(parent, "ss7i84in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i84uin_{i}').text() != 'Select':
+				contents.append(f'ss7i84uin_{i} = {getattr(parent, "ss7i84uin_" + str(i)).text()}\n')
 		for i in range(16):
-			if getattr(parent, f'ss7i84out_{i}').text() != 'Select':
-				contents.append(f'ss7i84out_{i} = {getattr(parent, "ss7i84out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i84uout_{i}').text() != 'Select':
+				contents.append(f'ss7i84uout_{i} = {getattr(parent, "ss7i84uout_" + str(i)).text()}\n')
 
-	elif parent.ss_card_cb.currentText() == '7i87':
+	elif parent.ss_card_cb.currentData() == '7i87':
 		# 8 ss7i87in_
 		for i in range(8):
 			if getattr(parent, f'ss7i87in_{i}').text() != 'Select':
